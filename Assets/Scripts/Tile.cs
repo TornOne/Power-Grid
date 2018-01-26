@@ -7,6 +7,7 @@ public class Tile : MonoBehaviour {
     public enum Type {Grass, Water};
 
     public Type type;
+    public GameObject building;
 
     private Color lastColor;
 
@@ -39,7 +40,7 @@ public class Tile : MonoBehaviour {
         {
             lastColor = GetComponent<Renderer>().material.color;
             Color objectColor = GetComponent<Renderer>().material.color;
-            GetComponent<Renderer>().material.color = Color.red;
+            GetComponent<Renderer>().material.color = new Color();
         }
         else
         {
