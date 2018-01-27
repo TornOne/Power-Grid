@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4255582979070954}
   - component: {fileID: 33275520137370548}
   - component: {fileID: 23413261227927134}
+  - component: {fileID: 114607231814319990}
   m_Layer: 0
   m_Name: Cylinder_001
   m_TagString: Untagged
@@ -212,6 +213,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energyProduction: 100
   moneyPerSecond: 10
+--- !u!114 &114607231814319990
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206967702101972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492af496626809f409f3bc5795d46c82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114844581247024664
 MonoBehaviour:
   m_ObjectHideFlags: 1

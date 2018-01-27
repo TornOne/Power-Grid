@@ -9,48 +9,48 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1188961043722042}
+  m_RootGameObject: {fileID: 1139459597088142}
   m_IsPrefabParent: 1
---- !u!1 &1188961043722042
+--- !u!1 &1139459597088142
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4087271605446828}
-  - component: {fileID: 33905275195676356}
-  - component: {fileID: 23234062282519778}
-  - component: {fileID: 114582832893371838}
-  - component: {fileID: 114108000776278258}
-  - component: {fileID: 114868575521434848}
-  - component: {fileID: 114077374370522768}
+  - component: {fileID: 4572989100750912}
+  - component: {fileID: 33038869884396884}
+  - component: {fileID: 23288507951042274}
+  - component: {fileID: 114169153112432022}
+  - component: {fileID: 114113443747930790}
+  - component: {fileID: 114953962178716118}
+  - component: {fileID: 114586530638322738}
   m_Layer: 0
-  m_Name: Factory
-  m_TagString: Producer
+  m_Name: Nuclear Plant
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4087271605446828
+--- !u!4 &4572989100750912
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1188961043722042}
+  m_GameObject: {fileID: 1139459597088142}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3555, y: 0.3555, z: 0.3555}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23234062282519778
+--- !u!23 &23288507951042274
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1188961043722042}
+  m_GameObject: {fileID: 1139459597088142}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -59,12 +59,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6c190b5678b15ed4696476e565d42a96, type: 3}
-  - {fileID: 2100002, guid: 6c190b5678b15ed4696476e565d42a96, type: 3}
-  - {fileID: 2100004, guid: 6c190b5678b15ed4696476e565d42a96, type: 3}
-  - {fileID: 2100006, guid: 6c190b5678b15ed4696476e565d42a96, type: 3}
-  - {fileID: 2100008, guid: 6c190b5678b15ed4696476e565d42a96, type: 3}
-  - {fileID: 2100010, guid: 6c190b5678b15ed4696476e565d42a96, type: 3}
+  - {fileID: 2100000, guid: 513f767108e23e04a891a34853a1673f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,62 +79,62 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33905275195676356
+--- !u!33 &33038869884396884
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1188961043722042}
-  m_Mesh: {fileID: 4300000, guid: 6c190b5678b15ed4696476e565d42a96, type: 3}
---- !u!114 &114077374370522768
+  m_GameObject: {fileID: 1139459597088142}
+  m_Mesh: {fileID: 4300000, guid: c853bee348f52e940aed38e8a5d336a1, type: 3}
+--- !u!114 &114113443747930790
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1188961043722042}
+  m_GameObject: {fileID: 1139459597088142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04eceedf7240df14aa466a252cd27e0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyCapacity: 100000
+  currentEnergy: 0
+--- !u!114 &114169153112432022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1139459597088142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a31bb31d1b77e7e42b1adc1c815dab9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyProduction: 10000
+  moneyPerSecond: 1000
+--- !u!114 &114586530638322738
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1139459597088142}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76b52222f3f554c44bf6ddd9bb1171a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   smokePuff: {fileID: 1928343612481638, guid: d7d3cceb71ab97149b5a782d3aa6db39, type: 2}
-  offset: {x: 0.25, y: 0.75, z: -0.15}
-  size: {x: 0.25, y: 0.25, z: 0.25}
+  offset: {x: 0, y: 0.8, z: 0}
+  size: {x: 0.5, y: 0.5, z: 0.5}
   lifeTime: 3
-  moveDistance: 0.3
-  color: {r: 0.49803922, g: 0.49803922, b: 0.49803922, a: 1}
---- !u!114 &114108000776278258
+  moveDistance: 0.5
+  color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &114953962178716118
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1188961043722042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04eceedf7240df14aa466a252cd27e0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  energyCapacity: 50
-  currentEnergy: 0
---- !u!114 &114582832893371838
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1188961043722042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55d92e655f7bc684694fcbab75e19a7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  energyConsumption: 250
-  moneyPerSecond: 100
---- !u!114 &114868575521434848
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1188961043722042}
+  m_GameObject: {fileID: 1139459597088142}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d000c6055b5065b4aabe96a9e08c1b7f, type: 3}

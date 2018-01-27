@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 76b52222f3f554c44bf6ddd9bb1171a1
+timeCreated: 1517074624
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - smokePuff: {fileID: 1928343612481638, guid: d7d3cceb71ab97149b5a782d3aa6db39,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
