@@ -8,7 +8,7 @@ public class UIBuildings : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        foreach (GameObject building in gameManager.producers) {
+        foreach (GameObject building in gameManager.producersList) {
             
         }
 	}
