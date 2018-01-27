@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114486413877861536}
   - component: {fileID: 114727090896196588}
   - component: {fileID: 114547876687762782}
+  - component: {fileID: 114138645384068150}
   m_Layer: 0
   m_Name: House
   m_TagString: Consumer
@@ -58,9 +59,10 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 72d7d84fd0848e646851c4c47748ca9d, type: 3}
-  - {fileID: 2100002, guid: 72d7d84fd0848e646851c4c47748ca9d, type: 3}
-  - {fileID: 2100004, guid: 72d7d84fd0848e646851c4c47748ca9d, type: 3}
+  - {fileID: 2100006, guid: 72d7d84fd0848e646851c4c47748ca9d, type: 3}
+  - {fileID: 2100008, guid: 72d7d84fd0848e646851c4c47748ca9d, type: 3}
+  - {fileID: 2100010, guid: 72d7d84fd0848e646851c4c47748ca9d, type: 3}
+  - {fileID: 2100012, guid: 72d7d84fd0848e646851c4c47748ca9d, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,6 +89,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1198167534310510}
   m_Mesh: {fileID: 4300000, guid: 72d7d84fd0848e646851c4c47748ca9d, type: 3}
+--- !u!114 &114138645384068150
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1198167534310510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c28aa598076fc64a95819288b5e1edb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100010, guid: 72d7d84fd0848e646851c4c47748ca9d, type: 3}
+  consumer: {fileID: 114486413877861536}
 --- !u!114 &114486413877861536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energyConsumption: 25
   moneyPerSecond: 10
+  hasEnergy: 0
 --- !u!114 &114547876687762782
 MonoBehaviour:
   m_ObjectHideFlags: 1
