@@ -128,7 +128,10 @@ public class GameManager : MonoBehaviour {
                 selectedTile.Select(true);
             }
             else {
-                selectedTile.Select(false);
+                if (selectedTile != null) {
+                    selectedTile.Select(false);
+                    selectedTile = null;
+                }
             }
         }
 
