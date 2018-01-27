@@ -184,14 +184,20 @@ public class GameManager : MonoBehaviour {
         return mainGameManager;
     }
 
+    public Tile GetSelectedTile() {
+        return selectedTile;
+    }
+
     public void BuySelected() {
         //Called from button, so need to get variables from main gameManager ↓
         if (GetGameManager().selectedTile != null && UIManager.GetUIManager().currentSelection != -1) {
             GetGameManager().selectedTile.CreateBuilding(UIManager.GetUIManager().lastBuilding);
+            UIManager.GetUIManager().ShowMenu(true, GetGameManager().selectedTile);
         }
     }
 
     public void SellSelected() {
         GetGameManager().selectedTile.DestoryBuilding();
+        UIManager.GetUIManager().ShowMenu(true, GetGameManager().selectedTile);
     }
 }

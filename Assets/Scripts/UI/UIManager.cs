@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Security.Policy;
@@ -24,7 +25,8 @@ public class UIManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if(infoMenu.activeSelf)
+	        UpdateInfo();
 	}
 
     public static UIManager GetUIManager() {
@@ -74,5 +76,29 @@ public class UIManager : MonoBehaviour {
             lastSelectedBuilding.GetComponent<Image>().color = lastSelectedBuildingColor;
 
         lastSelectedBuilding = null;
+    }
+
+    public void UpdateInfo() {
+        InfoMenuContainer infoMenuContainer = infoMenu.GetComponent<InfoMenuContainer>();
+        Tile selectedTile = GameManager.GetGameManager().GetSelectedTile();
+        if (selectedTile != null) {
+            GameObject building = selectedTile.building;
+            if (building != null) {
+                infoMenuContainer.buildingName.text = building.name;
+
+                string infoText = "";
+
+                if (building.tag == "Consumer") {
+                    infoText += "Money produced: " + building.GetComponent<EnergyConsumer>().moneyPerSecond + "\n";
+                }
+                else if (building.tag == "Producer") {
+                    infoText += "Money consumed: " + building.GetComponent<EnergyProducer>().moneyPerSecond + "\n";
+                }
+
+                infoText += "Energy storage: " + building.GetComponent<EnergyTransmitter>().currentEnergy + "/" + building.GetComponent<EnergyTransmitter>().energyCapacity + "PU";
+
+                infoMenuContainer.buildingInfo.text = infoText;
+            }
+        }
     }
 }
