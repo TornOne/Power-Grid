@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour {
             grid.Add(row);
 		}
 
-		grid[0][0].CreateBuilding(producersList[0]);
+		grid[0][0].CreateBuilding(producersList[1]);
 		grid[0][1].CreateBuilding(cablesList[0]);
 		grid[1][0].CreateBuilding(cablesList[0]);
 		grid[2][0].CreateBuilding(cablesList[0]);

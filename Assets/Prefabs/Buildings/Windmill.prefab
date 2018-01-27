@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 114079363141736418}
   - component: {fileID: 114844581247024664}
   m_Layer: 0
-  m_Name: Windmill Modeled
+  m_Name: Windmill
   m_TagString: Producer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,3 +223,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d000c6055b5065b4aabe96a9e08c1b7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineOffset: {x: 0, y: 0, z: 0}

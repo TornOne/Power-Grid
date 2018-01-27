@@ -7,6 +7,7 @@ TagManager:
   - Cable
   - Producer
   - Consumer
+  - GameManager
   layers:
   - Default
   - TransparentFX
