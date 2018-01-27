@@ -4,6 +4,7 @@ public class EnergyConsumer : MonoBehaviour {
 	public float energyConsumption, moneyPerSecond;
 	EnergyTransmitter transmitter;
 	MoneyTracker moneyTracker;
+	public bool hasEnergy;
 
 	void Start() {
 		transmitter = GetComponent<EnergyTransmitter>();
@@ -16,6 +17,9 @@ public class EnergyConsumer : MonoBehaviour {
 		if (transmitter.currentEnergy > energyThisFrame) {
 			transmitter.currentEnergy -= energyThisFrame;
 			moneyTracker.money += moneyPerSecond * Time.fixedDeltaTime;
+			hasEnergy = true;
+		} else {
+			hasEnergy = false;
 		}
 	}
 }

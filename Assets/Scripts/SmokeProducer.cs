@@ -21,6 +21,7 @@ public class SmokeProducer : MonoBehaviour {
 			SmokeScript smokeScript = smoke.GetComponent<SmokeScript>();
 			smokeScript.lifeTime = lifeTime;
 			smokeScript.moveDirection = new Vector3(Random.Range(0f, moveDistance / 2), moveDistance, Random.Range(0f, moveDistance / 2));
+			smokeScript.color = color;
 
 			yield return new WaitForSeconds(0.1f);
 		}
