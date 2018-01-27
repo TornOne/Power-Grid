@@ -18,6 +18,18 @@ public class CameraController : MonoBehaviour {
 			} else if (Input.GetButtonDown("RotateRight")) {
 				StartCoroutine(Turn(new Vector3(transform.position.x + Mathf.Sin(currentRotation) * 5, 0, transform.position.z + Mathf.Cos(currentRotation) * 5), 90));
 			}
+
+			/*Vector3 mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+			if (mousePos.x < 0.05f && mousePos.x >= 0) {
+				transform.position += new Vector3(-Mathf.Cos(currentRotation), 0, Mathf.Sin(currentRotation)) * moveSpeed * Time.deltaTime;
+			} else if (mousePos.x > 0.95f && mousePos.x <= 1) {
+				transform.position += new Vector3(Mathf.Cos(currentRotation), 0, -Mathf.Sin(currentRotation)) * moveSpeed * Time.deltaTime;
+			}
+			if (mousePos.y < 0.05f && mousePos.y >= 0) {
+				transform.position += new Vector3(-Mathf.Sin(currentRotation), 0, -Mathf.Cos(currentRotation)) * moveSpeed * Time.deltaTime;
+			} else if (mousePos.y > 0.95f && mousePos.y <= 1) {
+				transform.position += new Vector3(Mathf.Sin(currentRotation), 0, Mathf.Cos(currentRotation)) * moveSpeed * Time.deltaTime;
+			}*/
 		}
 	}
 
