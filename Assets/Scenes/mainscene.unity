@@ -162,12 +162,6 @@ Prefab:
       propertyPath: gridYSize
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114128266589931726, guid: 4451d59571d81432cbd2fc0e4f0e0dcc,
-        type: 2}
-      propertyPath: tilePrefab
-      value: 
-      objectReference: {fileID: 114967329763963812, guid: 738458732cd077c458c369c028efcaac,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4451d59571d81432cbd2fc0e4f0e0dcc, type: 2}
   m_IsPrefabParent: 0
