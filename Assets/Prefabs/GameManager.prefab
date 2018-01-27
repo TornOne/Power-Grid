@@ -53,11 +53,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 114784586361593582, guid: 7be5af8104fa048d899c7f1330cfe3c9,
     type: 2}
+  connectionCable: {fileID: 120916736030600044, guid: 1be81b6f48c92df4ab8e3161e4bd7415,
+    type: 2}
   producersList:
-  - {fileID: 1631137083660356, guid: bf0e9362c144885408948b99e57ee977, type: 2}
+  - {fileID: 1777732523174814, guid: da0b0b643c29df346af37beeddbdd272, type: 2}
   cablesList:
-  - {fileID: 1397641130642990, guid: 258e7315e95a7a74fb8026c75938adc5, type: 2}
+  - {fileID: 1710044194614610, guid: 9baedb137b7e6df4e9eb738f1f183e07, type: 2}
   consumersList:
-  - {fileID: 1629472248380428, guid: 2dd5c0fca271fd2468dd640b56569544, type: 2}
-  gridX: 4
-  gridY: 4
+  - {fileID: 1198167534310510, guid: c1648e5419d2e774d897736f4d21c524, type: 2}
+  gridXSize: 4
+  gridYSize: 4

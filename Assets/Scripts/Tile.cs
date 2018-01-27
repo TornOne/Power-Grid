@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Tile : MonoBehaviour {
 
@@ -11,6 +12,8 @@ public class Tile : MonoBehaviour {
 
     private Color lastColor;
 
+    public Vector2Int gridPosition;
+
 	void Start () {
         type = Type.Grass;
 	}
@@ -18,9 +21,6 @@ public class Tile : MonoBehaviour {
     public void setType(Type type) {
         switch (type)
         {
-            case Type.Grass:
-                GetComponent<Renderer>().material.color = Color.green;
-                break;
             case Type.Water:
                 GetComponent<Renderer>().material.color = Color.blue;
                 break;
@@ -34,7 +34,7 @@ public class Tile : MonoBehaviour {
         {
             lastColor = GetComponent<Renderer>().material.color;
             Color objectColor = GetComponent<Renderer>().material.color;
-            GetComponent<Renderer>().material.color = new Color();
+            GetComponent<Renderer>().material.color = new Color(objectColor.r, objectColor.g, objectColor.b, 0.5f);
         }
         else
         {
@@ -42,9 +42,13 @@ public class Tile : MonoBehaviour {
         }
     }
 
-	public void CreateBuilding(GameObject buildingPrefab) {
-		if (building == null) {
-			building = Instantiate(buildingPrefab, this.transform.position, Quaternion.identity);
+	public bool CreateBuilding(GameObject buildingPrefab) {
+		if (building == null && type == Type.Grass) {
+            building = Instantiate(buildingPrefab, this.transform.position, Quaternion.identity);
+		    building.transform.rotation = buildingPrefab.transform.rotation; //Rotation was not carried over from prefab ¯\_(ツ)_/¯
+		    building.GetComponent<CableManager>().CheckBordering(gridPosition);
+            return true;
 		}
+	    return false;
 	}
 }
