@@ -5,9 +5,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
 	public Tile tilePrefab;
-	public GameObject windmill;
-	public GameObject cable;
-	public GameObject house;
+
+    public List<GameObject> producersList;
+	public List<GameObject> cablesList;
+	public List<GameObject> consumersList;
+
 	public int gridX;
 	public int gridY;
 
@@ -37,11 +39,11 @@ public class GameManager : MonoBehaviour {
             grid.Add(row);
 		}
 			
-		grid[0][0].CreateBuilding(windmill);
-		grid[0][1].CreateBuilding(cable);
-		grid[1][0].CreateBuilding(cable);
-		//grid[2][0].CreateBuilding(cable);
-		grid[3][0].CreateBuilding(house);
+		grid[0][0].CreateBuilding(producersList[0]);
+		grid[0][1].CreateBuilding(cablesList[0]);
+		grid[1][0].CreateBuilding(cablesList[0]);
+		grid[2][0].CreateBuilding(cablesList[0]);
+		grid[3][0].CreateBuilding(consumersList[0]);
 
         Vector3 cameraPosition = Camera.main.transform.position;
 
@@ -109,7 +111,7 @@ public class GameManager : MonoBehaviour {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 100))
+            if (Physics.Raycast(ray, out hit, 100, LayerMask.GetMask("Tile")))
             {
                 if(selectedTile != null) {
                     selectedTile.Select(false);
@@ -122,7 +124,7 @@ public class GameManager : MonoBehaviour {
 
 		if (Input.GetMouseButtonDown(1))
 		{
-			selectedTile.CreateBuilding(house);
+			selectedTile.CreateBuilding(consumersList[0]);
 		}
 	}
 }
