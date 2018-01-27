@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour {
 
 		if (Input.GetMouseButtonDown(1))
 		{
-			selectedTile.CreateBuilding(windmill);
+			selectedTile.CreateBuilding(house);
 		}
 	}
 }
