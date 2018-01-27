@@ -24,6 +24,9 @@ public class UIBuildingFiller : MonoBehaviour {
             objects.productionLabel.text = "Production: " + producer.GetComponent<EnergyProducer>().energyProduction + "PU";
             objects.storageLabel.text = "Energy: " + producer.GetComponent<EnergyTransmitter>().energyCapacity + "PU";
             objects.upkeepLabel.text = "Upkeep: " + producer.GetComponent<EnergyProducer>().moneyPerSecond + "₡";
+
+            int index = i; //Closures ¯\_(ツ)_/¯
+            buildingInfo.GetComponent<Button>().onClick.AddListener(delegate { UIManager.GetUIManager().SetSelectedBuilding(index, buildingInfo, producer);});
         }
 	}
     

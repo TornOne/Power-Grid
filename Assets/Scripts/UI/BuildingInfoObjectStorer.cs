@@ -13,8 +13,8 @@ public class BuildingInfoObjectStorer : MonoBehaviour {
     public Text storageLabel;
 
     void Start () {
-		
-	}
+        
+    }
 	
 	// Update is called once per frame
 	void Update () {

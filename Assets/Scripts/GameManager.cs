@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour {
 
@@ -25,6 +26,8 @@ public class GameManager : MonoBehaviour {
 	    mainGameManager = this;
         grid = new List<List<Tile>>();
 
+	    GameObject tileParent = new GameObject("Tiles");
+
 		for(int i = 0; i < gridXSize; i++) {
             List<Tile> row = new List<Tile>();
 			for(int j = 0; j < gridYSize; j++) {
@@ -34,6 +37,7 @@ public class GameManager : MonoBehaviour {
 			    tile.gridPosition = new Vector2Int(i, j);
 
 				tile.transform.position = new Vector3(i, 0, j);
+			    tile.transform.SetParent(tileParent.transform);
                 if(i % 2 == 0 || j % 2 == 0) {
                     tile.SetType(Tile.Type.Grass);
                 }
@@ -45,11 +49,13 @@ public class GameManager : MonoBehaviour {
             grid.Add(row);
 		}
 
-		grid[0][0].CreateBuilding(producersList[1]);
+	    grid[2][2].CreateBuilding(producersList[0]);
+        grid[0][0].CreateBuilding(producersList[1]);
 		grid[0][1].CreateBuilding(cablesList[0]);
 		grid[1][0].CreateBuilding(cablesList[0]);
 		grid[2][0].CreateBuilding(cablesList[0]);
 		grid[3][0].CreateBuilding(consumersList[0]);
+	    grid[2][3].CreateBuilding(consumersList[1]);
 
         Vector3 cameraPosition = Camera.main.transform.position;
 
@@ -117,20 +123,22 @@ public class GameManager : MonoBehaviour {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 100, LayerMask.GetMask("Tile")))
-            {
-                if (selectedTile != null)
-                {
-                    selectedTile.Select(false);
-                }
+            if (!EventSystem.current.IsPointerOverGameObject()) {
+                if (Physics.Raycast(ray, out hit, 100, LayerMask.GetMask("Tile", "UI"))) {
+                    if (selectedTile != null) {
+                        selectedTile.Select(false);
+                    }
 
-                selectedTile = hit.transform.gameObject.GetComponent<Tile>();
-                selectedTile.Select(true);
-            }
-            else {
-                if (selectedTile != null) {
-                    selectedTile.Select(false);
-                    selectedTile = null;
+                    selectedTile = hit.transform.gameObject.GetComponent<Tile>();
+                    selectedTile.Select(true);
+                    UIManager.GetUIManager().ShowMenu(true, selectedTile);
+                }
+                else {
+                    if (selectedTile != null) {
+                        selectedTile.Select(false);
+                        selectedTile = null;
+                        UIManager.GetUIManager().ShowMenu(false, null);
+                    }
                 }
             }
         }
@@ -174,5 +182,16 @@ public class GameManager : MonoBehaviour {
         }
 
         return mainGameManager;
+    }
+
+    public void BuySelected() {
+        //Called from button, so need to get variables from main gameManager ↓
+        if (GetGameManager().selectedTile != null && UIManager.GetUIManager().currentSelection != -1) {
+            GetGameManager().selectedTile.CreateBuilding(UIManager.GetUIManager().lastBuilding);
+        }
+    }
+
+    public void SellSelected() {
+
     }
 }

@@ -58,12 +58,12 @@ MonoBehaviour:
     type: 2}
   producersList:
   - {fileID: 1777732523174814, guid: da0b0b643c29df346af37beeddbdd272, type: 2}
-  - {fileID: 1188961043722042, guid: 35512794b5ab56c4092e62ab5a4a4788, type: 2}
-  - {fileID: 1188961043722042, guid: 35512794b5ab56c4092e62ab5a4a4788, type: 2}
+  - {fileID: 1139459597088142, guid: 5aec7290feb4831488b69829b5cc4f86, type: 2}
   cablesList:
   - {fileID: 1710044194614610, guid: 9baedb137b7e6df4e9eb738f1f183e07, type: 2}
   consumersList:
   - {fileID: 1198167534310510, guid: c1648e5419d2e774d897736f4d21c524, type: 2}
+  - {fileID: 1188961043722042, guid: 35512794b5ab56c4092e62ab5a4a4788, type: 2}
   gridXSize: 4
   gridYSize: 4
 --- !u!114 &114206346837723098
