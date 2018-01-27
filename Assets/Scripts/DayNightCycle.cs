@@ -4,8 +4,47 @@ using UnityEngine;
 
 public class DayNightCycle : MonoBehaviour {
 	public float dayLength;
+	Light light;
+	Camera mainCam;
+	float timeOfDay = 0;
+	Color dayColor = new Color(1, 0.961f, 0.843f);
+	Color dayBackColor = new Color(0.58f, 0.722f, 0.941f);
+	Color sunsetColor = new Color(0.85f, 0.22f, 0.075f);
+	Color nightColor = new Color(0.071f, 0.02f, 0.286f);
+	Color nightBackColor = new Color(0, 0, 0);
+
+	void Start() {
+		light = GetComponent<Light>();
+		mainCam = Camera.main;
+	}
 
 	void Update () {
-		transform.Rotate(360 * Time.deltaTime / dayLength, 0, 0, Space.World);
+		timeOfDay = (timeOfDay + Time.deltaTime / dayLength) % 1f;
+
+		transform.localEulerAngles = new Vector3(360 * timeOfDay, -30, 0);
+
+		Color lightColor, backgroundColor;
+		if (timeOfDay < 0.1f) {
+			lightColor = Color.Lerp(sunsetColor, dayColor, timeOfDay * 10);
+			backgroundColor = Color.Lerp(nightBackColor, dayBackColor, timeOfDay * 5 + 0.5f);
+		} else if (timeOfDay < 0.4f) {
+			lightColor = dayColor;
+			backgroundColor = dayBackColor;
+		} else if (timeOfDay < 0.5f) {
+			lightColor = Color.Lerp(dayColor, sunsetColor, (timeOfDay - 0.4f) * 10);
+			backgroundColor = Color.Lerp(dayBackColor, nightBackColor, (timeOfDay - 0.4f) * 5);
+		} else if (timeOfDay < 0.6f) {
+			lightColor = Color.Lerp(sunsetColor, nightColor, (timeOfDay - 0.5f) * 10);
+			backgroundColor = Color.Lerp(dayBackColor, nightBackColor, (timeOfDay - 0.4f) * 5);
+		} else if (timeOfDay < 0.9f) {
+			lightColor = nightColor;
+			backgroundColor = nightBackColor;
+		} else {
+			lightColor = Color.Lerp(nightColor, sunsetColor, (timeOfDay - 0.9f) * 10);
+			backgroundColor = Color.Lerp(nightBackColor, dayBackColor, (timeOfDay - 0.9f) * 5);
+		}
+
+		light.color = lightColor;
+		mainCam.backgroundColor = backgroundColor;
 	}
 }
