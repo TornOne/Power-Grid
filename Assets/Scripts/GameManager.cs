@@ -35,10 +35,10 @@ public class GameManager : MonoBehaviour {
 
 				tile.transform.position = new Vector3(i, 0, j);
                 if(i % 2 == 0 || j % 2 == 0) {
-                    tile.setType(Tile.Type.Grass);
+                    tile.SetType(Tile.Type.Grass);
                 }
                 else {
-                    tile.setType(Tile.Type.Water);  
+                    tile.SetType(Tile.Type.Water);  
                 }
                 row.Add(tile);
 			}
@@ -144,24 +144,22 @@ public class GameManager : MonoBehaviour {
         return grid[pos.x][pos.y];
     }
 
-    public List<Tile> GetBorderingTiles(Vector2Int pos) {
-        List<Tile> tiles = new List<Tile>(4);
+    public Tile[] GetBorderingTiles(Vector2Int pos) {
+        Tile[] tiles = new Tile[4];
 
         if (pos.x > 0) {
-            tiles.Add(grid[pos.x - 1][pos.y]);
+            tiles[0] = grid[pos.x - 1][pos.y];
         }
 
         if (pos.y > 0) {
-            tiles.Add(grid[pos.x][pos.y - 1]);
+            tiles[1] = grid[pos.x][pos.y - 1];
         }
-        if (pos.x < gridXSize)
-        {
-            tiles.Add(grid[pos.x + 1][pos.y]);
+        if (pos.x < gridXSize - 1) {
+            tiles[2] = grid[pos.x + 1][pos.y];
         }
 
-        if (pos.y < gridYSize)
-        {
-            tiles.Add(grid[pos.x][pos.y + 1]);
+        if (pos.y < gridYSize - 1) {
+            tiles[3] = grid[pos.x][pos.y + 1];
         }
 
         return tiles;

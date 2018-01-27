@@ -7,7 +7,7 @@ public class Tile : MonoBehaviour {
 
     public enum Type {Grass, Water};
 
-    public Type type;
+    private Type type;
     public GameObject building;
 
     public delegate void ClickAction(GameObject gameObject);
@@ -21,11 +21,13 @@ public class Tile : MonoBehaviour {
         type = Type.Grass;
 	}
 
-    public void setType(Type type) {
+    public void SetType(Type type) {
         switch (type)
         {
             case Type.Water:
                 GetComponent<Renderer>().material.color = Color.blue;
+                break;
+            case Type.Grass:
                 break;
         }
 
@@ -53,7 +55,7 @@ public class Tile : MonoBehaviour {
 		if (building == null && type == Type.Grass) {
             building = Instantiate(buildingPrefab, this.transform.position, Quaternion.identity);
 		    building.transform.rotation = buildingPrefab.transform.rotation; //Rotation was not carried over from prefab ¯\_(ツ)_/¯
-		    building.GetComponent<CableManager>().CheckBordering(gridPosition);
+		    building.GetComponent<CableManager>().CheckBordering(gridPosition, true);
             return true;
 		}
 	    return false;
