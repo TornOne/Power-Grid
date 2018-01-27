@@ -5,12 +5,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
 	public Tile tilePrefab;
+	public GameObject windmill;
+	public GameObject cable;
+	public GameObject house;
 	public int gridX;
 	public int gridY;
-
-    public List<GameObject> producersList;
-    public List<GameObject> consumersList;
-    public List<GameObject> cablesList;
 
     public List<List<Tile>> grid;
 
@@ -38,19 +37,11 @@ public class GameManager : MonoBehaviour {
             grid.Add(row);
 		}
 			
-<<<<<<< HEAD
 		grid[0][0].CreateBuilding(windmill);
 		grid[0][1].CreateBuilding(cable);
 		grid[1][0].CreateBuilding(cable);
 		//grid[2][0].CreateBuilding(cable);
 		grid[3][0].CreateBuilding(house);
-=======
-		grid[0][0].CreateBuilding(producersList[0]);
-		grid[0][1].CreateBuilding(cablesList[0]);
-		grid[1][0].CreateBuilding(cablesList[0]);
-		grid[2][0].CreateBuilding(cablesList[0]);
-		grid[3][0].CreateBuilding(consumersList[0]);
->>>>>>> d308015fc3be11f2e798689868ca2a2e75f622a6
 
         Vector3 cameraPosition = Camera.main.transform.position;
 
@@ -131,7 +122,7 @@ public class GameManager : MonoBehaviour {
 
 		if (Input.GetMouseButtonDown(1))
 		{
-			selectedTile.CreateBuilding(consumersList[0]);
+			selectedTile.CreateBuilding(windmill);
 		}
 	}
 }
