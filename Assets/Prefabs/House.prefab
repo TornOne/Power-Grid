@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23046245723557968}
   - component: {fileID: 114376895723582422}
   - component: {fileID: 114954177315087236}
+  - component: {fileID: 114506420698497512}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
@@ -58,7 +59,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 46fcaba0b16996b40b03b6907843bce8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,7 +109,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d92e655f7bc684694fcbab75e19a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyConsumption: 50
+  energyConsumption: 25
+--- !u!114 &114506420698497512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1629472248380428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04eceedf7240df14aa466a252cd27e0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyTransferLimit: 50
 --- !u!114 &114954177315087236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -121,4 +134,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyPerSecond: 10
-  moneyTracker: {fileID: 0}

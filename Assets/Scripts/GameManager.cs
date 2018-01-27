@@ -5,6 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
 	public Tile tilePrefab;
+	public GameObject windmill;
+	public GameObject cable;
+	public GameObject house;
 	public int gridX;
 	public int gridY;
 
@@ -34,13 +37,68 @@ public class GameManager : MonoBehaviour {
 			}
             grid.Add(row);
 		}
+			
+		grid[0][0].CreateBuilding(windmill);
+		grid[0][1].CreateBuilding(cable);
+		grid[1][0].CreateBuilding(cable);
+		grid[2][0].CreateBuilding(cable);
+		grid[3][0].CreateBuilding(house);
 
         Vector3 cameraPosition = Camera.main.transform.position;
 
         Camera.main.transform.position = new Vector3(gridX / 2, cameraPosition.y, gridY / 2);
 	}
-	
-	// Update is called once per frame
+
+	void FixedUpdate() {
+		EnergyTransmitter[,] oldState = new EnergyTransmitter[gridX, gridY];
+		int[,] delta = new int[gridX, gridY];
+
+		for (int x = 0; x < gridX; x++) {
+			for (int y = 0; y < gridY; y++) {
+				oldState[x, y] = grid[x][y].building.GetComponent<EnergyTransmitter>();
+			}
+		}
+
+		for (int x = 0; x < gridX; x++) {
+			for (int y = 0; y < gridY; y++) {
+				if (oldState[x, y] == null) {
+					continue;
+				}
+
+				List<EnergyTransmitter> cables = new List<EnergyTransmitter>();
+				List<KeyValuePair<int, int>> cableIds = new List<KeyValuePair<int, int>>();
+				if (x > 0 && oldState[x - 1, y] != null && oldState[x - 1, y].currentEnergy < oldState[x, y].currentEnergy) {
+					cables.Add(oldState[x - 1, y]);
+					cableIds.Add(new KeyValuePair<int, int>(x - 1, y));
+				}
+				if (y > 0 && oldState[x, y - 1] != null && oldState[x, y - 1].currentEnergy < oldState[x, y].currentEnergy) {
+					cables.Add(oldState[x, y - 1]);
+					cableIds.Add(new KeyValuePair<int, int>(x, y - 1));
+				}
+				if (x < gridX - 1 && oldState[x + 1, y] != null && oldState[x + 1, y].currentEnergy < oldState[x, y].currentEnergy) {
+					cables.Add(oldState[x + 1, y]);
+					cableIds.Add(new KeyValuePair<int, int>(x + 1, y));
+				}
+				if (y < gridY - 1 && oldState[x, y + 1] != null && oldState[x, y + 1].currentEnergy < oldState[x, y].currentEnergy) {
+					cables.Add(oldState[x, y + 1]);
+					cableIds.Add(new KeyValuePair<int, int>(x, y + 1));
+				}
+				cables.Add(oldState[x, y]);
+
+				float sum = 0;
+				foreach (EnergyTransmitter cable in cables) {
+					sum += cable.currentEnergy;
+				}
+
+				for (int i = 0; i < cables.Count; i++) {
+					KeyValuePair<int, int> cableId = cableIds[i];
+					//loat amountAdded = Mathf.Min(sum / (cables.Count - i), cables[i].energyCapacity - )
+					//delta[cableId.Key, cableId.Value] += sum / (cables.Count - i);
+				}
+			}
+		}
+	}
+
 	void Update () {
         if (Input.GetMouseButtonDown(0))
         {
@@ -57,5 +115,10 @@ public class GameManager : MonoBehaviour {
                 selectedTile.Select(true);
             }
         }
+
+		if (Input.GetMouseButtonDown(1))
+		{
+			selectedTile.CreateBuilding(windmill);
+		}
 	}
 }

@@ -9,35 +9,34 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1631137083660356}
+  m_RootGameObject: {fileID: 1397641130642990}
   m_IsPrefabParent: 1
---- !u!1 &1631137083660356
+--- !u!1 &1397641130642990
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4584516614639058}
-  - component: {fileID: 33610250816986726}
-  - component: {fileID: 65736748718554996}
-  - component: {fileID: 23880731025527916}
-  - component: {fileID: 114293570307355298}
-  - component: {fileID: 114359345083945024}
-  - component: {fileID: 114737497514118834}
+  - component: {fileID: 4560945198549356}
+  - component: {fileID: 33804550114974966}
+  - component: {fileID: 65688145252169156}
+  - component: {fileID: 23944311684547152}
+  - component: {fileID: 114245634021463874}
+  - component: {fileID: 114731431447389232}
   m_Layer: 0
-  m_Name: Windmill
+  m_Name: Cable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4584516614639058
+--- !u!4 &4560945198549356
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1631137083660356}
+  m_GameObject: {fileID: 1397641130642990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -45,12 +44,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23880731025527916
+--- !u!23 &23944311684547152
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1631137083660356}
+  m_GameObject: {fileID: 1397641130642990}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -59,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0dcd1e3228434f54eaecc53532eff6ac, type: 2}
+  - {fileID: 2100000, guid: 920cd72047f2b304fa4bd7326d877503, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,58 +78,46 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33610250816986726
+--- !u!33 &33804550114974966
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1631137083660356}
+  m_GameObject: {fileID: 1397641130642990}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65736748718554996
+--- !u!65 &65688145252169156
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1631137083660356}
+  m_GameObject: {fileID: 1397641130642990}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114293570307355298
+--- !u!114 &114245634021463874
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1631137083660356}
+  m_GameObject: {fileID: 1397641130642990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a31bb31d1b77e7e42b1adc1c815dab9e, type: 3}
+  m_Script: {fileID: 11500000, guid: 55d92e655f7bc684694fcbab75e19a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyProduction: 250
---- !u!114 &114359345083945024
+  energyConsumption: 0
+--- !u!114 &114731431447389232
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1631137083660356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fdae458686806f40b81ec187df0aa77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moneyPerSecond: 10
---- !u!114 &114737497514118834
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1631137083660356}
+  m_GameObject: {fileID: 1397641130642990}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04eceedf7240df14aa466a252cd27e0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyTransferLimit: 1000
+  energyTransferLimit: 50

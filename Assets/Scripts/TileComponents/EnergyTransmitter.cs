@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
 public class EnergyTransmitter : MonoBehaviour {
-	public float energyTransferLimit;
-	float currentEnergyTransfer = 0;
+	public float energyCapacity, currentEnergy = 0;
 }

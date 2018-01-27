@@ -47,4 +47,10 @@ public class Tile : MonoBehaviour {
             GetComponent<Renderer>().material.color = lastColor;
         }
     }
+
+	public void CreateBuilding(GameObject buildingPrefab) {
+		if (building == null) {
+			building = Instantiate(buildingPrefab, this.transform.position, Quaternion.identity);
+		}
+	}
 }
