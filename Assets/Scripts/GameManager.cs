@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-    public static GameManager mainGameManager;
+    private static GameManager mainGameManager;
 
 	public Tile tilePrefab;
 
@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour {
                     tile.SetType(Tile.Type.Grass);
                 }
                 else {
-                    tile.SetType(Tile.Type.Water);  
+                    tile.SetType(Tile.Type.Water);
                 }
                 row.Add(tile);
 			}
@@ -166,5 +166,13 @@ public class GameManager : MonoBehaviour {
         }
 
         return tiles;
+    }
+
+    public static GameManager GetGameManager() {
+        if (mainGameManager == null) {
+            mainGameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        }
+
+        return mainGameManager;
     }
 }

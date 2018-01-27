@@ -35,7 +35,7 @@ public class Tile : MonoBehaviour {
         {
             lastColor = GetComponent<Renderer>().material.color;
             Color objectColor = GetComponent<Renderer>().material.color;
-            GetComponent<Renderer>().material.color = new Color(objectColor.r, objectColor.g, objectColor.b, 0.5f);
+            GetComponent<Renderer>().material.color = new Color(objectColor.r * 0.7f, objectColor.g * 0.7f, objectColor.b * 0.7f);
         }
         else
         {

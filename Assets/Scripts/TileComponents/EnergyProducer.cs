@@ -7,7 +7,7 @@ public class EnergyProducer : MonoBehaviour {
 
 	void Start() {
 		transmitter = GetComponent<EnergyTransmitter>();
-		moneyTracker = GameObject.FindGameObjectWithTag("GameController").GetComponent<MoneyTracker>();
+		moneyTracker = GameObject.FindGameObjectWithTag("GameManager").GetComponent<MoneyTracker>();
 	}
 
 	void FixedUpdate() {

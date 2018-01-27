@@ -27,10 +27,10 @@ public class CableManager : MonoBehaviour {
 
     public void CheckBordering(Vector2Int position, bool recursive) {
         if (prefab == null) {
-            prefab = GameManager.mainGameManager.connectionCable;
+            prefab = GameManager.GetGameManager().connectionCable;
         }
 
-        Tile[] bordering = GameManager.mainGameManager.GetBorderingTiles(position);
+        Tile[] bordering = GameManager.GetGameManager().GetBorderingTiles(position);
         for(int i = 0; i < 4; i++) {
             if (bordering[i] == null) {
                 continue;
