@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour {
 	public int gridX;
 	public int gridY;
 
+    public List<GameObject> producers;
+    public List<GameObject> consumers;
+    public List<GameObject> cables;
+
     public List<List<Tile>> grid;
 
     private Tile selectedTile;
