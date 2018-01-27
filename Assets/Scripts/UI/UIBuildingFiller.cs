@@ -5,17 +5,41 @@ using UnityEngine.UI;
 
 public class UIBuildingFiller : MonoBehaviour {
 
-    public CanvasRenderer buildingPanelTemplate;
+    public GameObject buildingPanelTemplate;
+    public GameObject cablePanelTemplate;
 
 	// Use this for initialization
 	void Start () {
-        for(int i = 0; i < GameManager.GetGameManager().producersList.Count; i++) {
+	    int carriedIndex = 0;
+	    for (int i = 0; i < GameManager.GetGameManager().cablesList.Count; i++) {
+	        GameObject cable = GameManager.GetGameManager().cablesList[i];
+            GameObject cableInfo = Instantiate(cablePanelTemplate);
+	        cableInfo.transform.SetParent(transform, false);
+	        cableInfo.transform.SetAsFirstSibling();
+
+	        RectTransform rectTransform = cableInfo.GetComponent<RectTransform>();
+	        rectTransform.anchoredPosition = new Vector2(rectTransform.localPosition.x, -(i + carriedIndex) * (rectTransform.rect.height + 10) - 10);
+
+	        BuildingInfoObjectStorer objects = cableInfo.GetComponent<BuildingInfoObjectStorer>();
+
+	        objects.nameLabel.text = cable.name;
+	        objects.costLabel.text = "Cost: ₡₡₡₡";
+	        objects.storageLabel.text = "Energy: " + cable.GetComponent<EnergyTransmitter>().energyCapacity + "PU";
+
+            int index = i + carriedIndex; //Closures ¯\_(ツ)_/¯
+	        cableInfo.GetComponent<Button>().onClick.AddListener(delegate { UIManager.GetUIManager().SetSelectedBuilding(index, cableInfo, cable); });
+        }
+
+	    carriedIndex = GameManager.GetGameManager().cablesList.Count;
+
+        for (int i = 0; i < GameManager.GetGameManager().producersList.Count; i++) {
             GameObject producer = GameManager.GetGameManager().producersList[i];
-            CanvasRenderer buildingInfo = Instantiate(buildingPanelTemplate);
+            GameObject buildingInfo = Instantiate(buildingPanelTemplate);
             buildingInfo.transform.SetParent(transform, false);
             buildingInfo.transform.SetAsFirstSibling();
+
 	        RectTransform rectTransform = buildingInfo.GetComponent<RectTransform>();
-	        rectTransform.anchoredPosition = new Vector2(rectTransform.localPosition.x, -i * (rectTransform.rect.height + 10) - 10);
+	        rectTransform.anchoredPosition = new Vector2(rectTransform.localPosition.x, -(i + carriedIndex) * (rectTransform.rect.height + 10) - 10);
 
             BuildingInfoObjectStorer objects = buildingInfo.GetComponent<BuildingInfoObjectStorer>();
 
@@ -25,7 +49,7 @@ public class UIBuildingFiller : MonoBehaviour {
             objects.storageLabel.text = "Energy: " + producer.GetComponent<EnergyTransmitter>().energyCapacity + "PU";
             objects.upkeepLabel.text = "Upkeep: " + producer.GetComponent<EnergyProducer>().moneyPerSecond + "₡";
 
-            int index = i; //Closures ¯\_(ツ)_/¯
+            int index = i + carriedIndex; //Closures ¯\_(ツ)_/¯
             buildingInfo.GetComponent<Button>().onClick.AddListener(delegate { UIManager.GetUIManager().SetSelectedBuilding(index, buildingInfo, producer);});
         }
 	}

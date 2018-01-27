@@ -307,6 +307,18 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114590013018876974, guid: b2f0813d8c5074b4fa82446deb68d511,
+        type: 2}
+      propertyPath: buildingPanelTemplate
+      value: 
+      objectReference: {fileID: 1788907580452590, guid: 82be456782d1fd949a138373f666ec08,
+        type: 2}
+    - target: {fileID: 114590013018876974, guid: b2f0813d8c5074b4fa82446deb68d511,
+        type: 2}
+      propertyPath: cablePanelTemplate
+      value: 
+      objectReference: {fileID: 1943351267635642, guid: c5c1225a99a139b46aa858d0f630f1d5,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2f0813d8c5074b4fa82446deb68d511, type: 2}
   m_IsPrefabParent: 0

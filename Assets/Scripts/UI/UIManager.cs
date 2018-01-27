@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour {
 
     private static UIManager uiManager;
     public int currentSelection;
-    private CanvasRenderer lastSelectedBuilding;
+    private GameObject lastSelectedBuilding;
     private Color lastSelectedBuildingColor;
     public GameObject lastBuilding;
 
@@ -54,7 +54,7 @@ public class UIManager : MonoBehaviour {
         }
     }
 
-    public void SetSelectedBuilding(int index, CanvasRenderer selectedBuilding, GameObject building) {
+    public void SetSelectedBuilding(int index, GameObject selectedBuilding, GameObject building) {
         currentSelection = index;
         lastBuilding = building;
 

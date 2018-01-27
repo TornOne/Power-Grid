@@ -192,6 +192,6 @@ public class GameManager : MonoBehaviour {
     }
 
     public void SellSelected() {
-
+        GetGameManager().selectedTile.DestoryBuilding();
     }
 }

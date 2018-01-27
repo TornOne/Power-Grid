@@ -25,6 +25,64 @@ public class CableManager : MonoBehaviour {
 		
 	}
 
+    //-1 = itself
+    public void Remove(Vector2Int position, int direction) {
+        Tile[] bordering = GameManager.GetGameManager().GetBorderingTiles(position);
+
+        if (direction == -1) {
+            for (int i = 0; i < 4; i++) {
+                if (bordering[i] == null) {
+                    continue;
+                }
+
+                Tile tile = bordering[i];
+
+                if (tile.building != null) {
+                    GameObject building = tile.building;
+                    CableManager cableManager = building.GetComponent<CableManager>();
+                    switch (i) {
+                        case 0: //Left, sorry for hardcode
+                            cableManager.Remove(tile.gridPosition, 2);
+                            break;
+                        case 1: //Down
+                            cableManager.Remove(tile.gridPosition, 3);
+                            break;
+                        case 2: //Right
+                            cableManager.Remove(tile.gridPosition, 0);
+                            break;
+                        case 3: //Up
+                            cableManager.Remove(tile.gridPosition, 1);
+                            break;
+                    }
+                }
+            }
+        }
+        else {
+            switch (direction) {
+                case 0: //Left, sorry for hardcode
+                    if (leftConnection != null) {
+                        Destroy(leftConnection);
+                    }
+                    break;
+                case 1: //Down
+                    if (downConnection != null) {
+                        Destroy(downConnection);
+                    }
+                    break;
+                case 2: //Right
+                    if (rightConnection != null) {
+                        Destroy(rightConnection);
+                    }
+                    break;
+                case 3: //Up
+                    if (upConnection != null) {
+                        Destroy(upConnection);
+                    }
+                    break;
+            }
+        }
+    }
+
     public void CheckBordering(Vector2Int position, bool recursive) {
         if (prefab == null) {
             prefab = GameManager.GetGameManager().connectionCable;

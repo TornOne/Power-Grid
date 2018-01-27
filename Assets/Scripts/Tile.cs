@@ -51,4 +51,10 @@ public class Tile : MonoBehaviour {
 		}
 	    return false;
 	}
+
+    public void DestoryBuilding() {
+        building.GetComponent<CableManager>().Remove(gridPosition, -1);
+        Destroy(building);
+        building = null;
+    }
 }
