@@ -111,12 +111,16 @@ public class GameManager : MonoBehaviour {
 
             if (Physics.Raycast(ray, out hit, 100))
             {
-                if(selectedTile != null) {
+                if (selectedTile != null)
+                {
                     selectedTile.Select(false);
                 }
 
                 selectedTile = hit.transform.gameObject.GetComponent<Tile>();
                 selectedTile.Select(true);
+            }
+            else {
+                selectedTile.Select(false);
             }
         }
 

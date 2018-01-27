@@ -9,6 +9,9 @@ public class Tile : MonoBehaviour {
     public Type type;
     public GameObject building;
 
+    public delegate void ClickAction(GameObject gameObject);
+    public static event ClickAction OnClicked;
+
     private Color lastColor;
 
 	void Start () {
@@ -32,12 +35,16 @@ public class Tile : MonoBehaviour {
     public void Select(bool select) {
         if (select)
         {
+            if (OnClicked != null)
+                OnClicked(gameObject);
             lastColor = GetComponent<Renderer>().material.color;
             Color objectColor = GetComponent<Renderer>().material.color;
             GetComponent<Renderer>().material.color = new Color();
         }
         else
         {
+            if (OnClicked != null)
+                OnClicked(null);
             GetComponent<Renderer>().material.color = lastColor;
         }
     }
