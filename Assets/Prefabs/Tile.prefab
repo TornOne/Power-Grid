@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4416962568147630}
   - component: {fileID: 33526331195356154}
   - component: {fileID: 23984379937479138}
-  - component: {fileID: 114784586361593582}
   - component: {fileID: 64557345197904494}
+  - component: {fileID: 114784586361593582}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -110,3 +110,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  building: {fileID: 0}

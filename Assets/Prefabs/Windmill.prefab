@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 65736748718554996}
   - component: {fileID: 23880731025527916}
   - component: {fileID: 114293570307355298}
-  - component: {fileID: 114359345083945024}
   - component: {fileID: 114737497514118834}
   m_Layer: 0
   m_Name: Windmill
@@ -110,17 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyProduction: 250
---- !u!114 &114359345083945024
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1631137083660356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fdae458686806f40b81ec187df0aa77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   moneyPerSecond: 10
 --- !u!114 &114737497514118834
 MonoBehaviour:
@@ -133,4 +121,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04eceedf7240df14aa466a252cd27e0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyTransferLimit: 1000
+  energyCapacity: 0
+  currentEnergy: 0

@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyConsumption: 0
+  moneyPerSecond: 0
 --- !u!114 &114731431447389232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -120,4 +121,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04eceedf7240df14aa466a252cd27e0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyTransferLimit: 50
+  energyCapacity: 50
+  currentEnergy: 0
