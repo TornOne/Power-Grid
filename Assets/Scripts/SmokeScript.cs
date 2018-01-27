@@ -7,6 +7,7 @@ public class SmokeScript : MonoBehaviour {
 	float age = 0;
 	public Vector3 moveDirection;
 	Material material;
+	public Color color;
 
 	void Start() {
 		material = GetComponent<MeshRenderer>().material;
@@ -16,7 +17,6 @@ public class SmokeScript : MonoBehaviour {
 	void Update() {
 		age += Time.deltaTime;
 		transform.Translate(moveDirection * Time.deltaTime, Space.World);
-		Color color = material.color;
 		material.color = new Color(color.r, color.g, color.b, 1 - age / lifeTime);
 	}
 }
