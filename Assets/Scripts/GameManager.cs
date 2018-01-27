@@ -4,29 +4,37 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    public static GameManager mainGameManager;
+
 	public Tile tilePrefab;
-	public GameObject windmill;
-	public GameObject cable;
-	public GameObject house;
-	public int gridX;
-	public int gridY;
+
+    public LineRenderer connectionCable;
+
+    public List<GameObject> producersList;
+	public List<GameObject> cablesList;
+	public List<GameObject> consumersList;
+
+	public int gridXSize;
+	public int gridYSize;
 
     public List<List<Tile>> grid;
 
     private Tile selectedTile;
 
 	void Start () {
+	    mainGameManager = this;
         grid = new List<List<Tile>>();
 
-		for(int i = 0; i < gridX; i++) {
+		for(int i = 0; i < gridXSize; i++) {
             List<Tile> row = new List<Tile>();
-			for(int j = 0; j < gridY; j++) {
+			for(int j = 0; j < gridYSize; j++) {
 				var tile = Instantiate(tilePrefab);
 
                 tile.name = "Tile " + i + ", " + j;
+			    tile.gridPosition = new Vector2Int(i, j);
 
 				tile.transform.position = new Vector3(i, 0, j);
-                if(i % 2 == 0) {
+                if(i % 2 == 0 || j % 2 == 0) {
                     tile.setType(Tile.Type.Grass);
                 }
                 else {
@@ -36,32 +44,32 @@ public class GameManager : MonoBehaviour {
 			}
             grid.Add(row);
 		}
-			
-		grid[0][0].CreateBuilding(windmill);
-		grid[0][1].CreateBuilding(cable);
-		grid[1][0].CreateBuilding(cable);
-		//grid[2][0].CreateBuilding(cable);
-		grid[3][0].CreateBuilding(house);
+
+		grid[0][0].CreateBuilding(producersList[0]);
+		grid[0][1].CreateBuilding(cablesList[0]);
+		grid[1][0].CreateBuilding(cablesList[0]);
+		grid[2][0].CreateBuilding(cablesList[0]);
+		grid[3][0].CreateBuilding(consumersList[0]);
 
         Vector3 cameraPosition = Camera.main.transform.position;
 
-        Camera.main.transform.position = new Vector3(gridX / 2, cameraPosition.y, gridY / 2);
+        Camera.main.transform.position = new Vector3(gridXSize / 2, cameraPosition.y, gridYSize / 2);
 	}
 
 	void FixedUpdate() {
-		EnergyTransmitter[,] oldState = new EnergyTransmitter[gridX, gridY];
-		float[,] deltas = new float[gridX, gridY];
+		EnergyTransmitter[,] oldState = new EnergyTransmitter[gridXSize, gridYSize];
+		float[,] deltas = new float[gridXSize, gridYSize];
 
-		for (int x = 0; x < gridX; x++) {
-			for (int y = 0; y < gridY; y++) {
+		for (int x = 0; x < gridXSize; x++) {
+			for (int y = 0; y < gridYSize; y++) {
 				if (grid[x][y].building != null) {
 					oldState[x, y] = grid[x][y].building.GetComponent<EnergyTransmitter>();
 				}
 			}
 		}
 
-		for (int x = 0; x < gridX; x++) {
-			for (int y = 0; y < gridY; y++) {
+		for (int x = 0; x < gridXSize; x++) {
+			for (int y = 0; y < gridYSize; y++) {
 				if (oldState[x, y] == null) {
 					continue;
 				}
@@ -76,11 +84,11 @@ public class GameManager : MonoBehaviour {
 					cables.Add(oldState[x, y - 1]);
 					cableIds.Add(new KeyValuePair<int, int>(x, y - 1));
 				}
-				if (x < gridX - 1 && oldState[x + 1, y] != null && oldState[x + 1, y].currentEnergy < oldState[x, y].currentEnergy) {
+				if (x < gridXSize - 1 && oldState[x + 1, y] != null && oldState[x + 1, y].currentEnergy < oldState[x, y].currentEnergy) {
 					cables.Add(oldState[x + 1, y]);
 					cableIds.Add(new KeyValuePair<int, int>(x + 1, y));
 				}
-				if (y < gridY - 1 && oldState[x, y + 1] != null && oldState[x, y + 1].currentEnergy < oldState[x, y].currentEnergy) {
+				if (y < gridYSize - 1 && oldState[x, y + 1] != null && oldState[x, y + 1].currentEnergy < oldState[x, y].currentEnergy) {
 					cables.Add(oldState[x, y + 1]);
 					cableIds.Add(new KeyValuePair<int, int>(x, y + 1));
 				}
@@ -94,8 +102,8 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 
-		for (int x = 0; x < gridX; x++) {
-			for (int y = 0; y < gridY; y++) {
+		for (int x = 0; x < gridXSize; x++) {
+			for (int y = 0; y < gridYSize; y++) {
 				if (oldState[x, y] != null) {
 					oldState[x, y].currentEnergy += deltas[x, y];
 				}
@@ -109,7 +117,7 @@ public class GameManager : MonoBehaviour {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 100))
+            if (Physics.Raycast(ray, out hit, 100, LayerMask.GetMask("Tile")))
             {
                 if (selectedTile != null)
                 {
@@ -126,7 +134,36 @@ public class GameManager : MonoBehaviour {
 
 		if (Input.GetMouseButtonDown(1))
 		{
-			selectedTile.CreateBuilding(house);
+		    if (selectedTile != null) {
+		        selectedTile.CreateBuilding(consumersList[0]);
+		    }
 		}
 	}
+
+    public Tile GetTile(Vector2Int pos) {
+        return grid[pos.x][pos.y];
+    }
+
+    public List<Tile> GetBorderingTiles(Vector2Int pos) {
+        List<Tile> tiles = new List<Tile>(4);
+
+        if (pos.x > 0) {
+            tiles.Add(grid[pos.x - 1][pos.y]);
+        }
+
+        if (pos.y > 0) {
+            tiles.Add(grid[pos.x][pos.y - 1]);
+        }
+        if (pos.x < gridXSize)
+        {
+            tiles.Add(grid[pos.x + 1][pos.y]);
+        }
+
+        if (pos.y < gridYSize)
+        {
+            tiles.Add(grid[pos.x][pos.y + 1]);
+        }
+
+        return tiles;
+    }
 }
