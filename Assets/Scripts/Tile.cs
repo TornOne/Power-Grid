@@ -11,14 +11,8 @@ public class Tile : MonoBehaviour {
 
     private Color lastColor;
 
-	// Use this for initialization
 	void Start () {
         type = Type.Grass;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        
 	}
 
     public void setType(Type type) {

@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour {
 
     private Tile selectedTile;
 
-	// Use this for initialization
 	void Start () {
         grid = new List<List<Tile>>();
 
@@ -41,7 +40,7 @@ public class GameManager : MonoBehaviour {
 		grid[0][0].CreateBuilding(windmill);
 		grid[0][1].CreateBuilding(cable);
 		grid[1][0].CreateBuilding(cable);
-		grid[2][0].CreateBuilding(cable);
+		//grid[2][0].CreateBuilding(cable);
 		grid[3][0].CreateBuilding(house);
 
         Vector3 cameraPosition = Camera.main.transform.position;
@@ -51,11 +50,13 @@ public class GameManager : MonoBehaviour {
 
 	void FixedUpdate() {
 		EnergyTransmitter[,] oldState = new EnergyTransmitter[gridX, gridY];
-		int[,] delta = new int[gridX, gridY];
+		float[,] deltas = new float[gridX, gridY];
 
 		for (int x = 0; x < gridX; x++) {
 			for (int y = 0; y < gridY; y++) {
-				oldState[x, y] = grid[x][y].building.GetComponent<EnergyTransmitter>();
+				if (grid[x][y].building != null) {
+					oldState[x, y] = grid[x][y].building.GetComponent<EnergyTransmitter>();
+				}
 			}
 		}
 
@@ -83,17 +84,20 @@ public class GameManager : MonoBehaviour {
 					cables.Add(oldState[x, y + 1]);
 					cableIds.Add(new KeyValuePair<int, int>(x, y + 1));
 				}
-				cables.Add(oldState[x, y]);
-
-				float sum = 0;
-				foreach (EnergyTransmitter cable in cables) {
-					sum += cable.currentEnergy;
-				}
 
 				for (int i = 0; i < cables.Count; i++) {
 					KeyValuePair<int, int> cableId = cableIds[i];
-					//loat amountAdded = Mathf.Min(sum / (cables.Count - i), cables[i].energyCapacity - )
-					//delta[cableId.Key, cableId.Value] += sum / (cables.Count - i);
+					float delta = Mathf.Min((oldState[x, y].currentEnergy - cables[i].currentEnergy) / (cables.Count + 1), (cables[i].energyCapacity - cables[i].currentEnergy) / 2);
+					deltas[cableId.Key, cableId.Value] += delta;
+					deltas[x, y] -= delta;
+				}
+			}
+		}
+
+		for (int x = 0; x < gridX; x++) {
+			for (int y = 0; y < gridY; y++) {
+				if (oldState[x, y] != null) {
+					oldState[x, y].currentEnergy += deltas[x, y];
 				}
 			}
 		}
