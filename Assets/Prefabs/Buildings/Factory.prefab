@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114108000776278258}
   - component: {fileID: 114868575521434848}
   - component: {fileID: 114077374370522768}
+  - component: {fileID: 114400555839290254}
   m_Layer: 0
   m_Name: Factory
   m_TagString: Producer
@@ -107,7 +108,7 @@ MonoBehaviour:
   size: {x: 0.25, y: 0.25, z: 0.25}
   lifeTime: 3
   moveDistance: 0.3
-  color: {r: 0.49803922, g: 0.49803922, b: 0.49803922, a: 1}
+  color: {r: 0.24705882, g: 0.24705882, b: 0.24705882, a: 1}
 --- !u!114 &114108000776278258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -121,6 +122,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energyCapacity: 50
   currentEnergy: 0
+--- !u!114 &114400555839290254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1188961043722042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f965fabb131c0aa4ca9b4fcb78baa9b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoker: {fileID: 114077374370522768}
+  consumer: {fileID: 114582832893371838}
 --- !u!114 &114582832893371838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energyConsumption: 250
   moneyPerSecond: 100
+  hasEnergy: 0
 --- !u!114 &114868575521434848
 MonoBehaviour:
   m_ObjectHideFlags: 1
