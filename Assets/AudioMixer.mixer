@@ -29,7 +29,7 @@ AudioMixerController:
     - 56e896755f57d45469fdbca87cf643e6
     name: View
   m_CurrentViewIndex: 0
-  m_TargetSnapshot: {fileID: 245660350582004210}
+  m_TargetSnapshot: {fileID: 24500006}
 --- !u!243 &24300002
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -264,7 +264,7 @@ AudioMixerSnapshotController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: LowEnergy_snapshot
+  m_Name: FirstNuclear_snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 8a780af593d402a4b896abe68d09e08f
   m_FloatValues:
