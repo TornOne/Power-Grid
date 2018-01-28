@@ -74,7 +74,6 @@ public class Tile : MonoBehaviour {
         {
             PowerTracker.GetPowerTracker().totalConsumption -= ec.energyConsumption;
             MoneyTracker.GetMoneyTracker().totalIncome -= ec.moneyPerSecond;
-            Debug.Log(ec.moneyPerSecond + " " + MoneyTracker.GetMoneyTracker().totalIncome);
         }
 
         if (ep != null)

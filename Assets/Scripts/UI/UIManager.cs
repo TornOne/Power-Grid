@@ -57,7 +57,7 @@ public class UIManager : MonoBehaviour {
     }
 
     public void SetSelectedBuilding(int index, GameObject selectedBuilding, GameObject building) {
-        AudioManager.GetAudioManager().PlaySelect();
+        AudioManager.GetAudioManager().PlayUISelect();
 
         currentSelection = index;
         lastBuilding = building;

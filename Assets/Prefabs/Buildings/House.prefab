@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyConsumption: 25
-  moneyPerSecond: 10
+  moneyPerSecond: 25
   hasEnergy: 0
 --- !u!114 &114547876687762782
 MonoBehaviour:

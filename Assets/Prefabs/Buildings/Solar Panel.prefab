@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5be25e6cf9a74c74eb6f05387b935170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 250
+  cost: 100
 --- !u!114 &114525468630207580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a31bb31d1b77e7e42b1adc1c815dab9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyProduction: 1000
+  energyProduction: 200
   moneyPerSecond: 100
 --- !u!114 &114715630269303940
 MonoBehaviour:
