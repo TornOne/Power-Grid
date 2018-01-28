@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HouseLightEnabler : MonoBehaviour {
-	public Material material;
+	Material material;
 	Color unlit = new Color(0, 0, 0.175f);
 	Color lit = new Color(1, 0.914f, 0.149f);
 	public EnergyConsumer consumer;
 
 	void Start() {
+		material = GetComponent<MeshRenderer>().material;
 		material.color = unlit;
 	}
 
