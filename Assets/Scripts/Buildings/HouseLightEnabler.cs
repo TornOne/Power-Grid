@@ -9,7 +9,7 @@ public class HouseLightEnabler : MonoBehaviour {
 	public EnergyConsumer consumer;
 
 	void Start() {
-		if (gameObject.name = "School") {
+		if (gameObject.name == "School") {
 			material = GetComponent<MeshRenderer>().materials[2];
 		} else {
 			material = GetComponent<MeshRenderer>().material;
