@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour {
                 transform.position += transform.TransformDirection(new Vector3(0, 0, Input.GetAxis("Mouse ScrollWheel") * transform.position.y));
 
 
-            transform.position += new Vector3(Input.GetAxisRaw("Horizontal") * Mathf.Cos(currentRotation) + Input.GetAxisRaw("Vertical") * Mathf.Sin(currentRotation) * transform.position.y/5,
+            transform.position += new Vector3(Input.GetAxisRaw("Horizontal") * Mathf.Cos(currentRotation) + Input.GetAxisRaw("Vertical") * Mathf.Sin(currentRotation),
 			                                 0,
 			                                 Input.GetAxisRaw("Vertical") * Mathf.Cos(currentRotation) - Input.GetAxisRaw("Horizontal") * Mathf.Sin(currentRotation)) * moveSpeed * Time.deltaTime * transform.position.y / 5;
 
