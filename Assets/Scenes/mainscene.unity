@@ -350,7 +350,7 @@ Prefab:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1979672581790546, guid: a1fb16b046522834f9b7c2f7bc372a1a, type: 2}
-      propertyPath: m_TagString
+      propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []

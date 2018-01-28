@@ -96,3 +96,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 0
   moveDirection: {x: 0, y: 0, z: 0}
+  color: {r: 0, g: 0, b: 0, a: 0}
