@@ -10,10 +10,10 @@ public class PerlinMapGenerator : MonoBehaviour {
 
 		List<List<Tile>> grid = new List<List<Tile>>(height);
 
-		for (int y = 0; y < height; y++) {
+		for (int x = 0; x < width; x++) {
 			List<Tile> row = new List<Tile>(width);
 
-			for (int x = 0; x < width; x++) {
+			for (int y = 0; y < width; y++) {
 				Tile tile = Instantiate(tilePrefab, new Vector3(x, 0, y), Quaternion.Euler(90, 0, 0), tileParent.transform);
 				tile.name = "Tile " + x + ", " + y;
 				tile.gridPosition = new Vector2Int(x, y);
