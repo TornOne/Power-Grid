@@ -110,3 +110,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterAmount: 0.4
+  houseThreshold: 0.92
+  factoryThreshold: 0.9
+  schoolThreshold: 0.895
