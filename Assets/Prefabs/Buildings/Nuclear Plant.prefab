@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114113443747930790}
   - component: {fileID: 114953962178716118}
   - component: {fileID: 114586530638322738}
+  - component: {fileID: 114279238290244916}
   m_Layer: 0
   m_Name: Nuclear Plant
   m_TagString: Producer
@@ -112,6 +113,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energyProduction: 10000
   moneyPerSecond: 1000
+--- !u!114 &114279238290244916
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1139459597088142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6057db92681727e44a30b08c06930de9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 909b109c81791884789104994f050070, type: 3}
 --- !u!114 &114586530638322738
 MonoBehaviour:
   m_ObjectHideFlags: 1

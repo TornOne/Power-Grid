@@ -23,7 +23,8 @@ public class UIBuildingFiller : MonoBehaviour {
 	        BuildingInfoObjectStorer objects = cableInfo.GetComponent<BuildingInfoObjectStorer>();
 
 	        objects.nameLabel.text = cable.name;
-	        objects.costLabel.text = "Cost: ₡₡₡₡";
+	        objects.image.sprite = cable.GetComponent<BuildingIcon>().icon;
+            objects.costLabel.text = "Cost: ₡₡₡₡";
 	        objects.storageLabel.text = "Capacity: " + cable.GetComponent<EnergyTransmitter>().energyCapacity + "PU";
 
             int index = i + carriedIndex; //Closures ¯\_(ツ)_/¯
@@ -44,6 +45,7 @@ public class UIBuildingFiller : MonoBehaviour {
             BuildingInfoObjectStorer objects = buildingInfo.GetComponent<BuildingInfoObjectStorer>();
 
             objects.nameLabel.text = producer.name;
+            objects.image.sprite = producer.GetComponent<BuildingIcon>().icon;
             objects.costLabel.text = "Cost: ₡₡₡₡";
             objects.productionLabel.text = "Production: " + producer.GetComponent<EnergyProducer>().energyProduction + "PU";
             objects.storageLabel.text = "Capacity: " + producer.GetComponent<EnergyTransmitter>().energyCapacity + "PU";

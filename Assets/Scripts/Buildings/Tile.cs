@@ -46,6 +46,7 @@ public class Tile : MonoBehaviour {
 	public bool CreateBuilding(GameObject buildingPrefab) {
 		if (building == null && type == Type.Grass) {
             building = Instantiate(buildingPrefab, transform.position, buildingPrefab.transform.rotation);
+		    building.name = buildingPrefab.name;
 		    building.GetComponent<CableManager>().CheckBordering(gridPosition, true);
             return true;
 		}

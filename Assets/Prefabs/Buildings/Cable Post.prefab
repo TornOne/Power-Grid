@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4138697298910610}
   - component: {fileID: 33540512463944860}
   - component: {fileID: 23399448152076110}
-  - component: {fileID: 95896552473631162}
   - component: {fileID: 114312574593671828}
   - component: {fileID: 114328080260652218}
   - component: {fileID: 114480632379864346}
+  - component: {fileID: 114069061761155162}
   m_Layer: 0
   m_Name: Cable Post
   m_TagString: Cable
@@ -87,23 +87,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1710044194614610}
   m_Mesh: {fileID: 4300000, guid: 40badcb10ee720544b4260d49bee4dc2, type: 3}
---- !u!95 &95896552473631162
-Animator:
-  serializedVersion: 3
+--- !u!114 &114069061761155162
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1710044194614610}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 40badcb10ee720544b4260d49bee4dc2, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6057db92681727e44a30b08c06930de9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 1d410b5c61a60cf49b53d1c32269b01b, type: 3}
 --- !u!114 &114312574593671828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energyConsumption: 0
   moneyPerSecond: 0
+  hasEnergy: 0
 --- !u!114 &114328080260652218
 MonoBehaviour:
   m_ObjectHideFlags: 1

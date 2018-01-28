@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour {
                     tile.SetType(Tile.Type.Grass);
                 }
                 else {
-                    tile.SetType(Tile.Type.Water);
+                    tile.SetType(Tile.Type.Grass);
                 }
                 row.Add(tile);
 			}
