@@ -204,6 +204,11 @@ Prefab:
       propertyPath: gridYSize
       value: 32
       objectReference: {fileID: 0}
+    - target: {fileID: 114206346837723098, guid: 4451d59571d81432cbd2fc0e4f0e0dcc,
+        type: 2}
+      propertyPath: money
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4451d59571d81432cbd2fc0e4f0e0dcc, type: 2}
   m_IsPrefabParent: 0

@@ -68,8 +68,8 @@ MonoBehaviour:
   consumersList:
   - {fileID: 1198167534310510, guid: c1648e5419d2e774d897736f4d21c524, type: 2}
   - {fileID: 1188961043722042, guid: 35512794b5ab56c4092e62ab5a4a4788, type: 2}
-  gridXSize: 8
-  gridYSize: 8
+  gridXSize: 32
+  gridYSize: 32
 --- !u!114 &114206346837723098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06441667e719eac4eb590ff343c9244e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 0
+  money: 100
   totalIncome: 0
   totalUpkeep: 0
 --- !u!114 &114251598202772250

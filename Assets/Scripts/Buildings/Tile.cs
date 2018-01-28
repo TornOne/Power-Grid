@@ -13,10 +13,6 @@ public class Tile : MonoBehaviour {
     private Color lastColor;
     public Vector2Int gridPosition;
 
-	void Start () {
-        type = Type.Grass;
-	}
-
     public void SetType(Type type) {
         switch (type)
         {
