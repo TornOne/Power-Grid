@@ -38,7 +38,7 @@ public class UIManager : MonoBehaviour {
     }
 
     public void ShowMenu(bool show, Tile selectedTile) {
-        if (!show) {
+        if (!show || selectedTile.GetTileType() == Tile.Type.Water) {
             buyMenu.SetActive(false);
             infoMenu.SetActive(false);
             Unselect();

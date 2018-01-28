@@ -26,6 +26,10 @@ public class Tile : MonoBehaviour {
         this.type = type;
     }
 
+    public Type GetTileType() {
+        return type;
+    }
+
     public void Select(bool select) {
         if (select)
         {
