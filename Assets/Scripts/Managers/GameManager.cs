@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 	    mainGameManager = this;
 	    grid = mapGen.GenerateMap(tilePrefab, gridXSize, gridYSize);
+		mapGen.GenerateConsumers(consumersList, grid);
 	    /*grid = new List<List<Tile>>();
 
 	    GameObject tileParent = new GameObject("Tiles");
