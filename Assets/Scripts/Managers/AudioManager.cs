@@ -5,32 +5,17 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour {
 
-    public AudioClip BuildWire;
-    public AudioClip BuildWind;
-    public AudioClip BuildNuclear;
     public AudioClip UISell;
     public AudioClip UISelect;
     public AudioClip UIDenied;
     public AudioClip UIUpgrade;
 
-    public AudioSource Wiresource;
-    public AudioSource Windsource;
-    public AudioSource Nuclearsource;
-    public AudioSource Sellsource;
-    public AudioSource Selectsource;
-    public AudioSource Deniedsource;
-    public AudioSource Upgradesource;
+    private AudioSource audioSource;
 
     private static AudioManager audioManager;
 
     void Start () {
-        Wiresource.clip = BuildWire;
-        Windsource.clip = BuildWind;
-        Nuclearsource.clip = BuildNuclear;
-        Sellsource.clip = UISell;
-        Selectsource.clip = UISelect;
-        Deniedsource.clip = UIDenied;
-        Upgradesource.clip = UIUpgrade;
+        audioSource = GetComponent<AudioSource>();
     }
 
     public static AudioManager GetAudioManager() {
@@ -41,38 +26,28 @@ public class AudioManager : MonoBehaviour {
         return audioManager;
     }
 
-    public void PlayWire() {
-        Wiresource.Play();
-    }
-
-    public void PlayWind() {
-        Windsource.Play();
-    }
-
-    public void PlayNuclear() {
-        Nuclearsource.Play();
-    }
-
     public void PlaySell() {
-        Sellsource.Play();
+        audioSource.PlayOneShot(UISell);
     }
 
     public void PlaySelect() {
-        Selectsource.Play();
+        audioSource.PlayOneShot(UISelect);
     }
 
     public void PlayDenied() {
-        Deniedsource.Play();
+        audioSource.PlayOneShot(UIDenied);
     }
 
     public void PlayUpgrade() {
-        Upgradesource.Play();
+        audioSource.PlayOneShot(UIUpgrade);
+    }
+
+    public void PlayBuild(AudioClip audioClip) {
+        audioSource.PlayOneShot(audioClip);
     }
 
 	// Update is called once per frame
 	void Update () {
-
-        
        
     }
 }

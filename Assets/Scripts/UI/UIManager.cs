@@ -89,13 +89,18 @@ public class UIManager : MonoBehaviour {
                 string infoText = "";
 
                 if (building.tag == "Consumer") {
-                    infoText += "Money produced: " + building.GetComponent<EnergyConsumer>().moneyPerSecond + "\n";
+                    infoText += "Money produced: " + building.GetComponent<EnergyConsumer>().moneyPerSecond + "₡/t\n";
+                    infoText += "Energy consumed: " + building.GetComponent<EnergyConsumer>().energyConsumption + "PU/t\n";
                 }
                 else if (building.tag == "Producer") {
-                    infoText += "Money consumed: " + building.GetComponent<EnergyProducer>().moneyPerSecond + "\n";
+                    infoText += "Upkeep cost: " + building.GetComponent<EnergyProducer>().moneyPerSecond + "₡/t\n";
+                    infoText += "Energy produced: " + building.GetComponent<EnergyProducer>().energyProduction + "PU/t\n";
+                }
+                else if (building.tag == "Cable") {
+                    infoText += "Energy consumed: " + building.GetComponent<EnergyConsumer>().energyConsumption + "PU/t\n";
                 }
 
-                infoText += "Energy storage: " + building.GetComponent<EnergyTransmitter>().currentEnergy + "/" + building.GetComponent<EnergyTransmitter>().energyCapacity + "PU";
+                infoText += "Energy storage: " + Mathf.Round(building.GetComponent<EnergyTransmitter>().currentEnergy) + "/" + building.GetComponent<EnergyTransmitter>().energyCapacity + "PU";
 
                 infoMenuContainer.buildingInfo.text = infoText;
             }

@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114953962178716118}
   - component: {fileID: 114586530638322738}
   - component: {fileID: 114279238290244916}
+  - component: {fileID: 114888856931732530}
   m_Layer: 0
   m_Name: Nuclear Plant
   m_TagString: Producer
@@ -142,6 +143,18 @@ MonoBehaviour:
   lifeTime: 3
   moveDistance: 0.5
   color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &114888856931732530
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1139459597088142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4369cccfeb63c5d41bef6c64a5445bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildSound: {fileID: 8300000, guid: fd99f8c5bfceaf3499af6ed7974b3981, type: 3}
 --- !u!114 &114953962178716118
 MonoBehaviour:
   m_ObjectHideFlags: 1
