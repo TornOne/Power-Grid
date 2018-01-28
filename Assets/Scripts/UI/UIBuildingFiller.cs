@@ -47,9 +47,9 @@ public class UIBuildingFiller : MonoBehaviour {
             objects.nameLabel.text = producer.name;
             objects.image.sprite = producer.GetComponent<BuildingIcon>().icon;
             objects.costLabel.text = "Cost: " + producer.GetComponent<BuildingCost>().cost + "₡";
-            objects.productionLabel.text = "Production: " + producer.GetComponent<EnergyProducer>().energyProduction + "PU";
+            objects.productionLabel.text = "Production: " + producer.GetComponent<EnergyProducer>().energyProduction + "PU/s";
             objects.storageLabel.text = "Capacity: " + producer.GetComponent<EnergyTransmitter>().energyCapacity + "PU";
-            objects.upkeepLabel.text = "Upkeep: " + producer.GetComponent<EnergyProducer>().moneyPerSecond + "₡";
+            objects.upkeepLabel.text = "Upkeep: " + producer.GetComponent<EnergyProducer>().moneyPerSecond + "₡/s";
 
             int index = i + carriedIndex; //Closures ¯\_(ツ)_/¯
             buildingInfo.GetComponent<Button>().onClick.AddListener(delegate { UIManager.GetUIManager().SetSelectedBuilding(index, buildingInfo, producer);});
