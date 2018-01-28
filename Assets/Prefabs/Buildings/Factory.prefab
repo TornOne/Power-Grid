@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04eceedf7240df14aa466a252cd27e0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyCapacity: 50
+  energyCapacity: 1000
   currentEnergy: 0
 --- !u!114 &114400555839290254
 MonoBehaviour:

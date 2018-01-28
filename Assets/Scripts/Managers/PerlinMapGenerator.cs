@@ -47,9 +47,9 @@ public class PerlinMapGenerator : MonoBehaviour {
 
                 if (value > houseThreshold)
                     grid[x][y].CreateBuilding(consumers[0]);
-                else if (value > factoryThreshold)
-                    grid[x][y].CreateBuilding(consumers[1]);
                 else if (value > schoolThreshold)
+                    grid[x][y].CreateBuilding(consumers[1]);
+                else if (value > factoryThreshold)
                     grid[x][y].CreateBuilding(consumers[2]);
 			}
 		}

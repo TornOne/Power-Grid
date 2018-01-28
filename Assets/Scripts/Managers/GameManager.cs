@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour {
 
 				for (int i = 0; i < cables.Count; i++) {
 					KeyValuePair<int, int> cableId = cableIds[i];
-					float delta = Mathf.Min((oldState[x, y].currentEnergy - cables[i].currentEnergy) / (cables.Count + 1), (cables[i].energyCapacity - cables[i].currentEnergy) / 2);
+					float delta = Mathf.Min((oldState[x, y].currentEnergy - cables[i].currentEnergy) / (cables.Count + 1), (cables[i].energyCapacity - cables[i].currentEnergy));
 					deltas[cableId.Key, cableId.Value] += delta;
 					deltas[x, y] -= delta;
 				}
@@ -241,7 +241,7 @@ public class GameManager : MonoBehaviour {
     public void SellSelected() {
         float buildingCost = GetGameManager().selectedTile.building.GetComponent<BuildingCost>().cost;
 
-        MoneyTracker.GetMoneyTracker().SellFor(buildingCost / 2);
+        MoneyTracker.GetMoneyTracker().SellFor(buildingCost);
 
         GetGameManager().selectedTile.DestoryBuilding();
         AudioManager.GetAudioManager().PlaySell();
