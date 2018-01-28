@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4446843425586832}
   - component: {fileID: 114128266589931726}
   - component: {fileID: 114206346837723098}
+  - component: {fileID: 114251598202772250}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -65,8 +66,8 @@ MonoBehaviour:
   consumersList:
   - {fileID: 1198167534310510, guid: c1648e5419d2e774d897736f4d21c524, type: 2}
   - {fileID: 1188961043722042, guid: 35512794b5ab56c4092e62ab5a4a4788, type: 2}
-  gridXSize: 4
-  gridYSize: 4
+  gridXSize: 8
+  gridYSize: 8
 --- !u!114 &114206346837723098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -79,3 +80,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: 0
+  totalIncome: 0
+  totalUpkeep: 0
+--- !u!114 &114251598202772250
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1493470078112988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8fe5d0ae9dab0f4496488605d3fd726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalProduction: 0
+  totalConsumption: 0
