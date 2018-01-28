@@ -24,12 +24,14 @@ public class GameManager : MonoBehaviour {
     private Tile selectedTile;
 
     private bool nuclearAlready;
+    private GameObject pole;
+    private float poleCost;
 
 	void Start () {
 	    mainGameManager = this;
 	    grid = mapGen.GenerateMap(tilePrefab, gridXSize, gridYSize);
 		mapGen.GenerateConsumers(consumersList, grid);
-	    /*grid = new List<List<Tile>>();
+        /*grid = new List<List<Tile>>();
 
 	    GameObject tileParent = new GameObject("Tiles");
 
@@ -54,13 +56,17 @@ public class GameManager : MonoBehaviour {
             grid.Add(row);
 		}*/
 
-/*	    grid[2][2].CreateBuilding(producersList[0]);
-        //grid[0][0].CreateBuilding(producersList[1]);
-		grid[0][1].CreateBuilding(cablesList[0]);
-		grid[1][0].CreateBuilding(cablesList[0]);
-		grid[2][0].CreateBuilding(cablesList[0]);
-		grid[3][0].CreateBuilding(consumersList[0]);
-	    grid[2][3].CreateBuilding(consumersList[1]);*/
+        /*
+         grid[2][2].CreateBuilding(producersList[0]);
+            //grid[0][0].CreateBuilding(producersList[1]);
+            grid[0][1].CreateBuilding(cablesList[0]);
+            grid[1][0].CreateBuilding(cablesList[0]);
+            grid[2][0].CreateBuilding(cablesList[0]);
+            grid[3][0].CreateBuilding(consumersList[0]);
+            grid[2][3].CreateBuilding(consumersList[1]);*/
+
+	    pole = cablesList[0];
+	    poleCost = pole.GetComponent<BuildingCost>().cost;
 
         Vector3 cameraPosition = Camera.main.transform.position;
 
@@ -123,37 +129,46 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Update () {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+	    if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) {
+	        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+	        RaycastHit hit;
 
-            if (!EventSystem.current.IsPointerOverGameObject()) {
-                if (Physics.Raycast(ray, out hit, 100, LayerMask.GetMask("Tile", "UI"))) {
-                    if (selectedTile != null) {
-                        selectedTile.Select(false);
-                    }
+	        if (!EventSystem.current.IsPointerOverGameObject()) {
+	            if (Physics.Raycast(ray, out hit, 100, LayerMask.GetMask("Tile", "UI"))) {
+	                if (selectedTile != null)
+	                {
+	                    selectedTile.Select(false);
+	                }
 
-                    selectedTile = hit.transform.gameObject.GetComponent<Tile>();
-                    selectedTile.Select(true);
-                    UIManager.GetUIManager().ShowMenu(true, selectedTile);
-                    AudioManager.GetAudioManager().PlaySelect();
+	                selectedTile = hit.transform.gameObject.GetComponent<Tile>();
+	                selectedTile.Select(true);
+
+	                UIManager.GetUIManager().ShowMenu(true, selectedTile);
+	                AudioManager.GetAudioManager().PlaySelect();
                 }
-                else {
-                    if (selectedTile != null) {
-                        selectedTile.Select(false);
-                        selectedTile = null;
-                        UIManager.GetUIManager().ShowMenu(false, null);
+	            else {
+	                if (selectedTile != null) {
+	                    selectedTile.Select(false);
+	                    selectedTile = null;
+	                    UIManager.GetUIManager().ShowMenu(false, null);
                     }
-                }
-            }
+	            }
+	        }
         }
 
-		if (Input.GetMouseButtonDown(1))
-		{
+		if (Input.GetMouseButtonDown(1)) {
 		    if (selectedTile != null) {
-		        //selectedTile.CreateBuilding(consumersList[0]);
-		    }
+		        if (!MoneyTracker.GetMoneyTracker().CanAfford(poleCost)) {
+		            AudioManager.GetAudioManager().PlayDenied();
+		            return;
+		        }
+		        else {
+		            if (selectedTile.CreateBuilding(pole)) {
+		                MoneyTracker.GetMoneyTracker().BuyFor(poleCost);
+		                pole.GetComponent<BuildSound>().Play();
+                    }
+		        }
+            }
 		}
 	}
 

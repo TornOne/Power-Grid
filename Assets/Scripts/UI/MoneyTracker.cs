@@ -25,7 +25,7 @@ public class MoneyTracker : MonoBehaviour {
     }
 
     public bool CanAfford(float cost) {
-        if (money - cost > 0)
+        if (money - cost >= 0)
             return true;
 
         return false;
