@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class DayNightCycle : MonoBehaviour {
 	public float dayLength;
-	Light light;
-	Camera mainCam;
-	float timeOfDay = 0;
-	Color dayColor = new Color(1, 0.961f, 0.843f);
-	Color dayBackColor = new Color(0.58f, 0.722f, 0.941f);
-	Color sunsetColor = new Color(0.85f, 0.22f, 0.075f);
-	Color nightColor = new Color(0.071f, 0.02f, 0.286f);
-	Color nightBackColor = new Color(0, 0, 0);
+	private new Light light;
+	private Camera mainCam;
+	private float timeOfDay = 0;
+	private Color dayColor = new Color(1, 0.961f, 0.843f);
+	private Color dayBackColor = new Color(0.58f, 0.722f, 0.941f);
+	private Color sunsetColor = new Color(0.85f, 0.22f, 0.075f);
+	private Color nightColor = new Color(0.071f, 0.02f, 0.286f);
+	private Color nightBackColor = new Color(0, 0, 0);
 
 	void Start() {
 		light = GetComponent<Light>();

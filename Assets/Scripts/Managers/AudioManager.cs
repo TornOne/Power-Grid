@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class Audiomanager : MonoBehaviour {
+public class AudioManager : MonoBehaviour {
 
     public AudioClip BuildWire;
     public AudioClip BuildWind;
@@ -21,8 +21,7 @@ public class Audiomanager : MonoBehaviour {
     public AudioSource Deniedsource;
     public AudioSource Upgradesource;
 
-
-
+    private static AudioManager audioManager;
 
     void Start () {
         Wiresource.clip = BuildWire;
@@ -34,29 +33,42 @@ public class Audiomanager : MonoBehaviour {
         Upgradesource.clip = UIUpgrade;
     }
 
-    public void PlayWire()
+    public static AudioManager GetAudioManager() {
+        if (audioManager == null) {
+            audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+        }
 
-    {
+        return audioManager;
+    }
+
+    public void PlayWire() {
         Wiresource.Play();
     }
+
     public void PlayWind() {
         Windsource.Play();
     }
+
     public void PlayNuclear() {
         Nuclearsource.Play();
     }
+
     public void PlaySell() {
         Sellsource.Play();
     }
+
     public void PlaySelect() {
         Selectsource.Play();
     }
+
     public void PlayDenied() {
         Deniedsource.Play();
     }
+
     public void PlayUpgrade() {
         Upgradesource.Play();
     }
+
 	// Update is called once per frame
 	void Update () {
 

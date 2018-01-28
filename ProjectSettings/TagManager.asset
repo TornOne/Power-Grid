@@ -9,6 +9,7 @@ TagManager:
   - Consumer
   - GameManager
   - UIManager
+  - AudioManager
   layers:
   - Default
   - TransparentFX
