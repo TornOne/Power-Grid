@@ -88,4 +88,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecad7c8367f26644db2b061a7e3206e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayLength: 300
+  dayLength: 90
