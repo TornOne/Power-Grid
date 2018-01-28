@@ -67,6 +67,7 @@ MonoBehaviour:
   - {fileID: 1710044194614610, guid: 9baedb137b7e6df4e9eb738f1f183e07, type: 2}
   consumersList:
   - {fileID: 1198167534310510, guid: c1648e5419d2e774d897736f4d21c524, type: 2}
+  - {fileID: 1852109244883740, guid: 07eacc36d4df75248a20bec4eb0f413f, type: 2}
   - {fileID: 1188961043722042, guid: 35512794b5ab56c4092e62ab5a4a4788, type: 2}
   gridXSize: 32
   gridYSize: 32
