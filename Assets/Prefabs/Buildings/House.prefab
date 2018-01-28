@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c28aa598076fc64a95819288b5e1edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100010, guid: 72d7d84fd0848e646851c4c47748ca9d, type: 3}
   consumer: {fileID: 114486413877861536}
 --- !u!114 &114486413877861536
 MonoBehaviour:
@@ -113,8 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d92e655f7bc684694fcbab75e19a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyConsumption: 25
-  moneyPerSecond: 25
+  energyConsumption: 50
+  moneyPerSecond: 5
   hasEnergy: 0
 --- !u!114 &114547876687762782
 MonoBehaviour:

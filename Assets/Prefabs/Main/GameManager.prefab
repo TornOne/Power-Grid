@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06441667e719eac4eb590ff343c9244e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 100
+  money: 200
   totalIncome: 0
   totalUpkeep: 0
 --- !u!114 &114251598202772250
@@ -110,3 +110,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterAmount: 0.4
+  houseThreshold: 0.92
+  schoolThreshold: 0.9
+  factoryThreshold: 0.895
