@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PerlinMapGenerator : MonoBehaviour {
 	public float waterAmount = 0.4f;
+    public float houseThreshold = 0.92f;
+    public float factoryThreshold = 0.9f;
+    public float schoolThreshold = 0.895f;
 
-	public List<List<Tile>> GenerateMap(Tile tilePrefab, int width, int height) {
+    public List<List<Tile>> GenerateMap(Tile tilePrefab, int width, int height) {
 		float offsetX = Random.Range(0f, 1024f);
 		float offsetY = Random.Range(0f, 1024f);
 		GameObject tileParent = new GameObject("Tiles");
@@ -42,9 +45,12 @@ public class PerlinMapGenerator : MonoBehaviour {
 			for (int y = 0; y < grid[0].Count; y++) {
 				float value = Random.Range(0f, 1f);
 
-				if (value > 0.90f) {
-					grid[x][y].CreateBuilding(consumers[0]);
-				}
+                if (value > houseThreshold)
+                    grid[x][y].CreateBuilding(consumers[0]);
+                else if (value > factoryThreshold)
+                    grid[x][y].CreateBuilding(consumers[1]);
+                else if (value > schoolThreshold)
+                    grid[x][y].CreateBuilding(consumers[2]);
 			}
 		}
 	}
