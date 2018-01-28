@@ -166,6 +166,7 @@ public class GameManager : MonoBehaviour {
 		            if (selectedTile.CreateBuilding(pole)) {
 		                MoneyTracker.GetMoneyTracker().BuyFor(poleCost);
 		                pole.GetComponent<BuildSound>().Play();
+		                UIManager.GetUIManager().ShowMenu(true, selectedTile);
                     }
 		        }
             }

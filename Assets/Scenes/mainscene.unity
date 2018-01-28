@@ -299,21 +299,18 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1674110356424892, guid: b2f0813d8c5074b4fa82446deb68d511, type: 2}
+    - target: {fileID: 1058580829384972, guid: b2f0813d8c5074b4fa82446deb68d511, type: 2}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1097805509412114, guid: b2f0813d8c5074b4fa82446deb68d511, type: 2}
+    - target: {fileID: 1824938406861662, guid: b2f0813d8c5074b4fa82446deb68d511, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1601825027138360, guid: b2f0813d8c5074b4fa82446deb68d511, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1140412979022732, guid: b2f0813d8c5074b4fa82446deb68d511, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 224476144472181444, guid: b2f0813d8c5074b4fa82446deb68d511,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 72.79
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2f0813d8c5074b4fa82446deb68d511, type: 2}
