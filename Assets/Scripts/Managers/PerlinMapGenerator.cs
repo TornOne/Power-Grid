@@ -42,7 +42,7 @@ public class PerlinMapGenerator : MonoBehaviour {
 			for (int y = 0; y < grid[0].Count; y++) {
 				float value = Random.Range(0f, 1f);
 
-				if (value > 0.9f) {
+				if (value > 0.90f) {
 					grid[x][y].CreateBuilding(consumers[0]);
 				}
 			}

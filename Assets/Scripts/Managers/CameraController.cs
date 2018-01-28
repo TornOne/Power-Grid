@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour {
 	void Update() {
 		if (!isMoving) {
 			float currentRotation = transform.rotation.eulerAngles.y * Mathf.Deg2Rad;
-            if (Input.GetAxis("Mouse ScrollWheel") > 0f && transform.position.y > 0.6) // forward
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f && transform.position.y > 1) // forward
                 transform.position += transform.TransformDirection( new Vector3(0, 0, Input.GetAxis("Mouse ScrollWheel") * transform.position.y));
             else if(Input.GetAxis("Mouse ScrollWheel") < 0f && transform.position.y < 50)
                 transform.position += transform.TransformDirection(new Vector3(0, 0, Input.GetAxis("Mouse ScrollWheel") * transform.position.y));
