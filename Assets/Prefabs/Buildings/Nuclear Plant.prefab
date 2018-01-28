@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04eceedf7240df14aa466a252cd27e0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyCapacity: 100000
+  energyCapacity: 5000
   currentEnergy: 0
 --- !u!114 &114169153112432022
 MonoBehaviour:
@@ -113,8 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a31bb31d1b77e7e42b1adc1c815dab9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyProduction: 10000
-  moneyPerSecond: 500
+  energyProduction: 5000
+  moneyPerSecond: 100
 --- !u!114 &114279238290244916
 MonoBehaviour:
   m_ObjectHideFlags: 1

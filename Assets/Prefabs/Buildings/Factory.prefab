@@ -228,8 +228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d92e655f7bc684694fcbab75e19a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyConsumption: 200
-  moneyPerSecond: 100
+  energyConsumption: 1800
+  moneyPerSecond: 54
   hasEnergy: 0
 --- !u!114 &114868575521434848
 MonoBehaviour:
