@@ -1,14 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class InfoMenuContainer : MonoBehaviour {
+public class BuildingCost : MonoBehaviour {
 
-    public Text buildingName;
-    public Text buildingInfo;
-    public GameObject sellButton;
-    public GameObject upgradeButton;
+    public float cost;
 
 	// Use this for initialization
 	void Start () {

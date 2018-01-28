@@ -133,6 +133,7 @@ public class GameManager : MonoBehaviour {
                     selectedTile = hit.transform.gameObject.GetComponent<Tile>();
                     selectedTile.Select(true);
                     UIManager.GetUIManager().ShowMenu(true, selectedTile);
+                    AudioManager.GetAudioManager().PlaySelect();
                 }
                 else {
                     if (selectedTile != null) {
@@ -192,13 +193,20 @@ public class GameManager : MonoBehaviour {
     public void BuySelected() {
         //Called from button, so need to get variables from main gameManager ↓
         if (GetGameManager().selectedTile != null && UIManager.GetUIManager().currentSelection != -1) {
-            GetGameManager().selectedTile.CreateBuilding(UIManager.GetUIManager().lastBuilding);
+            if (GetGameManager().selectedTile.CreateBuilding(UIManager.GetUIManager().lastBuilding)) {
+                UIManager.GetUIManager().lastBuilding.GetComponent<BuildSound>().Play();
+            }
             UIManager.GetUIManager().ShowMenu(true, GetGameManager().selectedTile);
         }
     }
 
     public void SellSelected() {
         GetGameManager().selectedTile.DestoryBuilding();
+        AudioManager.GetAudioManager().PlaySell();
         UIManager.GetUIManager().ShowMenu(true, GetGameManager().selectedTile);
+    }
+
+    public void UpgradeSelected() {
+        AudioManager.GetAudioManager().PlayUpgrade();
     }
 }

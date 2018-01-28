@@ -58,6 +58,8 @@ GameObject:
   - component: {fileID: 114079363141736418}
   - component: {fileID: 114844581247024664}
   - component: {fileID: 114448911102095340}
+  - component: {fileID: 114587862522850228}
+  - component: {fileID: 114379110009191132}
   m_Layer: 0
   m_Name: Windmill
   m_TagString: Producer
@@ -214,6 +216,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energyProduction: 100
   moneyPerSecond: 10
+--- !u!114 &114379110009191132
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1777732523174814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be25e6cf9a74c74eb6f05387b935170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 50
 --- !u!114 &114448911102095340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -226,6 +240,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: b5b58b51ccbe0da43854f048d91dd8a5, type: 3}
+--- !u!114 &114587862522850228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1777732523174814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4369cccfeb63c5d41bef6c64a5445bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildSound: {fileID: 8300000, guid: fd99f8c5bfceaf3499af6ed7974b3981, type: 3}
 --- !u!114 &114607231814319990
 MonoBehaviour:
   m_ObjectHideFlags: 1
