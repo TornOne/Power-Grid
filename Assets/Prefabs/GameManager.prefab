@@ -58,6 +58,7 @@ MonoBehaviour:
     type: 2}
   producersList:
   - {fileID: 1777732523174814, guid: da0b0b643c29df346af37beeddbdd272, type: 2}
+  - {fileID: 1623352097311810, guid: 788cafcdde405734784dc64c4b0712ac, type: 2}
   - {fileID: 1139459597088142, guid: 5aec7290feb4831488b69829b5cc4f86, type: 2}
   cablesList:
   - {fileID: 1710044194614610, guid: 9baedb137b7e6df4e9eb738f1f183e07, type: 2}
