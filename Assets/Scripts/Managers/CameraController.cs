@@ -9,14 +9,20 @@ public class CameraController : MonoBehaviour {
 	void Update() {
 		if (!isMoving) {
 			float currentRotation = transform.rotation.eulerAngles.y * Mathf.Deg2Rad;
-			transform.position += new Vector3(Input.GetAxisRaw("Horizontal") * Mathf.Cos(currentRotation) + Input.GetAxisRaw("Vertical") * Mathf.Sin(currentRotation),
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f && transform.position.y > 0.6) // forward
+                transform.position += transform.TransformDirection( new Vector3(0, 0, Input.GetAxis("Mouse ScrollWheel") * transform.position.y));
+            else if(Input.GetAxis("Mouse ScrollWheel") < 0f && transform.position.y < 50)
+                transform.position += transform.TransformDirection(new Vector3(0, 0, Input.GetAxis("Mouse ScrollWheel") * transform.position.y));
+
+
+            transform.position += new Vector3(Input.GetAxisRaw("Horizontal") * Mathf.Cos(currentRotation) + Input.GetAxisRaw("Vertical") * Mathf.Sin(currentRotation) * transform.position.y/5,
 			                                 0,
-			                                 Input.GetAxisRaw("Vertical") * Mathf.Cos(currentRotation) - Input.GetAxisRaw("Horizontal") * Mathf.Sin(currentRotation)) * moveSpeed * Time.deltaTime;
+			                                 Input.GetAxisRaw("Vertical") * Mathf.Cos(currentRotation) - Input.GetAxisRaw("Horizontal") * Mathf.Sin(currentRotation)) * moveSpeed * Time.deltaTime * transform.position.y / 5;
 
 			if (Input.GetButtonDown("RotateLeft")) {
-				StartCoroutine(Turn(new Vector3(transform.position.x + Mathf.Sin(currentRotation) * 5, 0, transform.position.z + Mathf.Cos(currentRotation) * 5), 90));
+				StartCoroutine(Turn(new Vector3(transform.position.x + Mathf.Sin(currentRotation) * transform.position.y, 0, transform.position.z + Mathf.Cos(currentRotation) * transform.position.y), 90));
 			} else if (Input.GetButtonDown("RotateRight")) {
-				StartCoroutine(Turn(new Vector3(transform.position.x + Mathf.Sin(currentRotation) * 5, 0, transform.position.z + Mathf.Cos(currentRotation) * 5), -90));
+				StartCoroutine(Turn(new Vector3(transform.position.x + Mathf.Sin(currentRotation) * transform.position.y, 0, transform.position.z + Mathf.Cos(currentRotation) * transform.position.y), -90));
 			}
 
 			/*Vector3 mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
