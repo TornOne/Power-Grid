@@ -91,19 +91,19 @@ public class UIManager : MonoBehaviour {
                 string infoText = "";
 
                 if (building.tag == "Consumer") {
-                    infoText += "Money produced: " + building.GetComponent<EnergyConsumer>().moneyPerSecond + "₡/t\n";
-                    infoText += "Energy consumed: " + building.GetComponent<EnergyConsumer>().energyConsumption + "PU/t\n";
+                    infoText += "Money produced: " + building.GetComponent<EnergyConsumer>().moneyPerSecond + "₡/s\n";
+                    infoText += "Energy consumed: " + building.GetComponent<EnergyConsumer>().energyConsumption + "PU/s\n";
                     infoMenuContainer.sellButton.SetActive(false);
                     infoMenuContainer.upgradeButton.SetActive(false);
                 }
                 else if (building.tag == "Producer") {
-                    infoText += "Upkeep cost: " + building.GetComponent<EnergyProducer>().moneyPerSecond + "₡/t\n";
-                    infoText += "Energy produced: " + building.GetComponent<EnergyProducer>().energyProduction + "PU/t\n";
+                    infoText += "Upkeep cost: " + building.GetComponent<EnergyProducer>().moneyPerSecond + "₡/s\n";
+                    infoText += "Energy produced: " + building.GetComponent<EnergyProducer>().energyProduction + "PU/s\n";
                     infoMenuContainer.sellButton.SetActive(true);
                     infoMenuContainer.upgradeButton.SetActive(false);
                 }
                 else if (building.tag == "Cable") {
-                    infoText += "Energy consumed: " + building.GetComponent<EnergyConsumer>().energyConsumption + "PU/t\n";
+                    infoText += "Energy consumed: " + building.GetComponent<EnergyConsumer>().energyConsumption + "PU/s\n";
                     infoMenuContainer.sellButton.SetActive(true);
                     infoMenuContainer.upgradeButton.SetActive(true);
                 }

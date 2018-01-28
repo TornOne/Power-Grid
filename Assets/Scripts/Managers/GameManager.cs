@@ -152,7 +152,7 @@ public class GameManager : MonoBehaviour {
 		if (Input.GetMouseButtonDown(1))
 		{
 		    if (selectedTile != null) {
-		        selectedTile.CreateBuilding(consumersList[0]);
+		        //selectedTile.CreateBuilding(consumersList[0]);
 		    }
 		}
 	}

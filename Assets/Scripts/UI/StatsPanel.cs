@@ -19,9 +19,9 @@ public class StatsPanel : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	    moneyText.text = "Money: " + Mathf.RoundToInt(MoneyTracker.GetMoneyTracker().money) + "₡";
-	    incomeText.text = "Global Income: " + Mathf.RoundToInt(MoneyTracker.GetMoneyTracker().totalIncome) + "₡/t";
-	    upkeepText.text = "Global Upkeep: " + Mathf.RoundToInt(MoneyTracker.GetMoneyTracker().totalUpkeep) + "₡/t";
-        productioText.text = "Global Production: " + Mathf.RoundToInt(PowerTracker.GetPowerTracker().totalProduction) + "PU/t";
-	    consumptionText.text = "Global Consumption: " + Mathf.RoundToInt(PowerTracker.GetPowerTracker().totalConsumption) + "PU/t";
+	    incomeText.text = "Global Income: " + Mathf.RoundToInt(MoneyTracker.GetMoneyTracker().totalIncome) + "₡/s";
+	    upkeepText.text = "Global Upkeep: " + Mathf.RoundToInt(MoneyTracker.GetMoneyTracker().totalUpkeep) + "₡/s";
+        productioText.text = "Global Production: " + Mathf.RoundToInt(PowerTracker.GetPowerTracker().totalProduction) + "PU/s";
+	    consumptionText.text = "Global Consumption: " + Mathf.RoundToInt(PowerTracker.GetPowerTracker().totalConsumption) + "PU/s";
     }
 }
