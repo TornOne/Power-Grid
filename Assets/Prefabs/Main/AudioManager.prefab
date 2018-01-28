@@ -232,7 +232,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 2d26340c9fc1e184faedd8116272fd62, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.836
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -531,7 +531,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -558,7 +558,7 @@ MonoBehaviour:
   UISell: {fileID: 8300000, guid: 14e28c39f16c9474b91d53d1b49b6a7f, type: 3}
   UISelectTile: {fileID: 8300000, guid: d4466890a17ad9641bbfcaeb066604b8, type: 3}
   UIDenied: {fileID: 8300000, guid: 35ab77f223aad5a4bbb601b1fe933773, type: 3}
-  UIUpgrade: {fileID: 8300000, guid: 1db251a0a5fc6d94eafe019a09672b65, type: 3}
+  UIUpgrade: {fileID: 8300000, guid: 0049303f7e48ed449843b856d00378b1, type: 3}
   UISelectMenu: {fileID: 8300000, guid: 1db251a0a5fc6d94eafe019a09672b65, type: 3}
 --- !u!114 &114638343179077046
 MonoBehaviour:

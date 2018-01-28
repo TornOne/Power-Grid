@@ -109,3 +109,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300304e3b5d4f0c4fadbfa0e614680ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterAmount: 0.4
