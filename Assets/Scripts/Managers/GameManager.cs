@@ -204,4 +204,8 @@ public class GameManager : MonoBehaviour {
         AudioManager.GetAudioManager().PlaySell();
         UIManager.GetUIManager().ShowMenu(true, GetGameManager().selectedTile);
     }
+
+    public void UpgradeSelected() {
+        AudioManager.GetAudioManager().PlayUpgrade();
+    }
 }

@@ -24,8 +24,8 @@ public class UIBuildingFiller : MonoBehaviour {
 
 	        objects.nameLabel.text = cable.name;
 	        objects.image.sprite = cable.GetComponent<BuildingIcon>().icon;
-            objects.costLabel.text = "Cost: ₡₡₡₡";
-	        objects.storageLabel.text = "Capacity: " + cable.GetComponent<EnergyTransmitter>().energyCapacity + "PU";
+            objects.costLabel.text = "Cost: " + cable.GetComponent<BuildingCost>().cost + "₡";
+            objects.storageLabel.text = "Capacity: " + cable.GetComponent<EnergyTransmitter>().energyCapacity + "PU";
 
             int index = i + carriedIndex; //Closures ¯\_(ツ)_/¯
 	        cableInfo.GetComponent<Button>().onClick.AddListener(delegate { UIManager.GetUIManager().SetSelectedBuilding(index, cableInfo, cable); });
@@ -46,7 +46,7 @@ public class UIBuildingFiller : MonoBehaviour {
 
             objects.nameLabel.text = producer.name;
             objects.image.sprite = producer.GetComponent<BuildingIcon>().icon;
-            objects.costLabel.text = "Cost: ₡₡₡₡";
+            objects.costLabel.text = "Cost: " + producer.GetComponent<BuildingCost>().cost + "₡";
             objects.productionLabel.text = "Production: " + producer.GetComponent<EnergyProducer>().energyProduction + "PU";
             objects.storageLabel.text = "Capacity: " + producer.GetComponent<EnergyTransmitter>().energyCapacity + "PU";
             objects.upkeepLabel.text = "Upkeep: " + producer.GetComponent<EnergyProducer>().moneyPerSecond + "₡";
