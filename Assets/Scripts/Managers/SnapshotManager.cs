@@ -9,6 +9,7 @@ public class SnapshotManager : MonoBehaviour {
     public AudioMixerSnapshot StartGame;
     public AudioMixerSnapshot Nuclear;
     public AudioMixerSnapshot EndGame;
+    private static SnapshotManager snapshotManager;
 
 	void Start () {
 
@@ -30,7 +31,16 @@ public class SnapshotManager : MonoBehaviour {
     {
         EndGame.TransitionTo(2);
     }
-	void Update () {
+    public static SnapshotManager GetSnapshotManager()
+    {
+        if (snapshotManager == null)
+        {
+            snapshotManager = GameObject.FindGameObjectWithTag("SnapshotManager").GetComponent<SnapshotManager>();
+        }
+
+        return snapshotManager;
+    }
+    void Update () {
 		
 	}
 }
