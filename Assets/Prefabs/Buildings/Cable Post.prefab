@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114480632379864346}
   - component: {fileID: 114069061761155162}
   - component: {fileID: 114237722256470052}
+  - component: {fileID: 114982312492068956}
   m_Layer: 0
   m_Name: Cable Post
   m_TagString: Cable
@@ -151,3 +152,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &114982312492068956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1710044194614610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be25e6cf9a74c74eb6f05387b935170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 10
