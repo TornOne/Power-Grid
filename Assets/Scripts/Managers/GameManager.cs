@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
 
     private static GameManager mainGameManager;
 
+	public PerlinMapGenerator mapGen;
 	public Tile tilePrefab;
 
     public LineRenderer connectionCable;
@@ -24,11 +25,11 @@ public class GameManager : MonoBehaviour {
 
 	void Start () {
 	    mainGameManager = this;
-        grid = new List<List<Tile>>();
+		grid = mapGen.GenerateMap(tilePrefab, gridXSize, gridYSize);
 
-	    GameObject tileParent = new GameObject("Tiles");
+	    //GameObject tileParent = new GameObject("Tiles");
 
-		for(int i = 0; i < gridXSize; i++) {
+		/*for(int i = 0; i < gridXSize; i++) {
             List<Tile> row = new List<Tile>();
 			for(int j = 0; j < gridYSize; j++) {
 				var tile = Instantiate(tilePrefab);
@@ -47,7 +48,7 @@ public class GameManager : MonoBehaviour {
                 row.Add(tile);
 			}
             grid.Add(row);
-		}
+		}*/
 
 	    grid[2][2].CreateBuilding(producersList[0]);
         grid[0][0].CreateBuilding(producersList[1]);
