@@ -54,13 +54,13 @@ public class GameManager : MonoBehaviour {
             grid.Add(row);
 		}*/
 
-	    grid[2][2].CreateBuilding(producersList[0]);
+/*	    grid[2][2].CreateBuilding(producersList[0]);
         //grid[0][0].CreateBuilding(producersList[1]);
 		grid[0][1].CreateBuilding(cablesList[0]);
 		grid[1][0].CreateBuilding(cablesList[0]);
 		grid[2][0].CreateBuilding(cablesList[0]);
 		grid[3][0].CreateBuilding(consumersList[0]);
-	    grid[2][3].CreateBuilding(consumersList[1]);
+	    grid[2][3].CreateBuilding(consumersList[1]);*/
 
         Vector3 cameraPosition = Camera.main.transform.position;
 
