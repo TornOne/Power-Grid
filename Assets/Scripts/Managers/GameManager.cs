@@ -171,7 +171,10 @@ public class GameManager : MonoBehaviour {
 		        }
             }
 		}
-	}
+
+	    if (Input.GetKey("escape"))
+	        Application.Quit();
+    }
 
     public Tile GetTile(Vector2Int pos) {
         return grid[pos.x][pos.y];
