@@ -6,9 +6,10 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour {
 
     public AudioClip UISell;
-    public AudioClip UISelect;
+    public AudioClip UISelectTile;
     public AudioClip UIDenied;
     public AudioClip UIUpgrade;
+    public AudioClip UISelectMenu;
 
     private AudioSource audioSource;
 
@@ -31,7 +32,7 @@ public class AudioManager : MonoBehaviour {
     }
 
     public void PlaySelect() {
-        audioSource.PlayOneShot(UISelect);
+        audioSource.PlayOneShot(UISelectTile);
     }
 
     public void PlayDenied() {
@@ -40,6 +41,10 @@ public class AudioManager : MonoBehaviour {
 
     public void PlayUpgrade() {
         audioSource.PlayOneShot(UIUpgrade);
+    }
+    public void PlayUISelect()
+    {
+        audioSource.PlayOneShot(UISelectMenu);
     }
 
     public void PlayBuild(AudioClip audioClip) {

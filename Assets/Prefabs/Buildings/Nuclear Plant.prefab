@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyProduction: 10000
-  moneyPerSecond: 1000
+  moneyPerSecond: 500
 --- !u!114 &114279238290244916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5be25e6cf9a74c74eb6f05387b935170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 1000
+  cost: 100
 --- !u!114 &114586530638322738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4369cccfeb63c5d41bef6c64a5445bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildSound: {fileID: 8300000, guid: fd99f8c5bfceaf3499af6ed7974b3981, type: 3}
+  buildSound: {fileID: 8300000, guid: 1a73a2795e4abcc408998be43d65d82a, type: 3}
 --- !u!114 &114953962178716118
 MonoBehaviour:
   m_ObjectHideFlags: 1

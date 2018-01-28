@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4446843425586832}
   - component: {fileID: 114128266589931726}
   - component: {fileID: 114206346837723098}
+  - component: {fileID: 114251598202772250}
+  - component: {fileID: 114845971951054494}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -52,6 +54,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 509f00a7b18574dd48e2bf0842b0d642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapGen: {fileID: 114845971951054494}
   tilePrefab: {fileID: 114967329763963812, guid: 738458732cd077c458c369c028efcaac,
     type: 2}
   connectionCable: {fileID: 120916736030600044, guid: 1be81b6f48c92df4ab8e3161e4bd7415,
@@ -65,8 +68,8 @@ MonoBehaviour:
   consumersList:
   - {fileID: 1198167534310510, guid: c1648e5419d2e774d897736f4d21c524, type: 2}
   - {fileID: 1188961043722042, guid: 35512794b5ab56c4092e62ab5a4a4788, type: 2}
-  gridXSize: 4
-  gridYSize: 4
+  gridXSize: 32
+  gridYSize: 32
 --- !u!114 &114206346837723098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -78,4 +81,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06441667e719eac4eb590ff343c9244e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 0
+  money: 100
+  totalIncome: 0
+  totalUpkeep: 0
+--- !u!114 &114251598202772250
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1493470078112988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8fe5d0ae9dab0f4496488605d3fd726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalProduction: 0
+  totalConsumption: 0
+--- !u!114 &114845971951054494
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1493470078112988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300304e3b5d4f0c4fadbfa0e614680ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

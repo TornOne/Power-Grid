@@ -13,10 +13,6 @@ public class Tile : MonoBehaviour {
     private Color lastColor;
     public Vector2Int gridPosition;
 
-	void Start () {
-        type = Type.Grass;
-	}
-
     public void SetType(Type type) {
         switch (type)
         {
@@ -28,6 +24,10 @@ public class Tile : MonoBehaviour {
         }
 
         this.type = type;
+    }
+
+    public Type GetTileType() {
+        return type;
     }
 
     public void Select(bool select) {
@@ -55,7 +55,6 @@ public class Tile : MonoBehaviour {
             if (ec != null) {
 		        PowerTracker.GetPowerTracker().totalConsumption += ec.energyConsumption;
                 MoneyTracker.GetMoneyTracker().totalIncome += ec.moneyPerSecond;
-                Debug.Log(ec.moneyPerSecond + " " + MoneyTracker.GetMoneyTracker().totalIncome);
             }
 
 		    if (ep != null) {
@@ -75,7 +74,6 @@ public class Tile : MonoBehaviour {
         {
             PowerTracker.GetPowerTracker().totalConsumption -= ec.energyConsumption;
             MoneyTracker.GetMoneyTracker().totalIncome -= ec.moneyPerSecond;
-            Debug.Log(ec.moneyPerSecond + " " + MoneyTracker.GetMoneyTracker().totalIncome);
         }
 
         if (ep != null)

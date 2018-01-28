@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 114638343179077046}
   m_Layer: 0
   m_Name: AudioSnapshots
-  m_TagString: Untagged
+  m_TagString: SnapshotManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -526,9 +526,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UISell: {fileID: 8300000, guid: 14e28c39f16c9474b91d53d1b49b6a7f, type: 3}
-  UISelect: {fileID: 8300000, guid: 1db251a0a5fc6d94eafe019a09672b65, type: 3}
+  UISelectTile: {fileID: 8300000, guid: d4466890a17ad9641bbfcaeb066604b8, type: 3}
   UIDenied: {fileID: 8300000, guid: 35ab77f223aad5a4bbb601b1fe933773, type: 3}
   UIUpgrade: {fileID: 8300000, guid: 1db251a0a5fc6d94eafe019a09672b65, type: 3}
+  UISelectMenu: {fileID: 8300000, guid: 1db251a0a5fc6d94eafe019a09672b65, type: 3}
 --- !u!114 &114638343179077046
 MonoBehaviour:
   m_ObjectHideFlags: 1

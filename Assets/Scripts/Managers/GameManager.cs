@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
 
     private static GameManager mainGameManager;
 
+	public PerlinMapGenerator mapGen;
 	public Tile tilePrefab;
 
     public LineRenderer connectionCable;
@@ -24,7 +25,8 @@ public class GameManager : MonoBehaviour {
 
 	void Start () {
 	    mainGameManager = this;
-        grid = new List<List<Tile>>();
+	    grid = mapGen.GenerateMap(tilePrefab, gridXSize, gridYSize);
+	    /*grid = new List<List<Tile>>();
 
 	    GameObject tileParent = new GameObject("Tiles");
 
@@ -47,10 +49,10 @@ public class GameManager : MonoBehaviour {
                 row.Add(tile);
 			}
             grid.Add(row);
-		}
+		}*/
 
 	    grid[2][2].CreateBuilding(producersList[0]);
-        grid[0][0].CreateBuilding(producersList[1]);
+        //grid[0][0].CreateBuilding(producersList[1]);
 		grid[0][1].CreateBuilding(cablesList[0]);
 		grid[1][0].CreateBuilding(cablesList[0]);
 		grid[2][0].CreateBuilding(cablesList[0]);
@@ -192,6 +194,15 @@ public class GameManager : MonoBehaviour {
     public void BuySelected() {
         //Called from button, so need to get variables from main gameManager ↓
         if (GetGameManager().selectedTile != null && UIManager.GetUIManager().currentSelection != -1) {
+            float buildingCost = UIManager.GetUIManager().lastBuilding.GetComponent<BuildingCost>().cost;
+
+            if (!MoneyTracker.GetMoneyTracker().CanAfford(buildingCost)) {
+                AudioManager.GetAudioManager().PlayDenied();
+                return;
+            }
+
+            MoneyTracker.GetMoneyTracker().BuyFor(buildingCost);
+
             if (GetGameManager().selectedTile.CreateBuilding(UIManager.GetUIManager().lastBuilding)) {
                 UIManager.GetUIManager().lastBuilding.GetComponent<BuildSound>().Play();
             }
@@ -200,6 +211,10 @@ public class GameManager : MonoBehaviour {
     }
 
     public void SellSelected() {
+        float buildingCost = GetGameManager().selectedTile.building.GetComponent<BuildingCost>().cost;
+
+        MoneyTracker.GetMoneyTracker().SellFor(buildingCost / 2);
+
         GetGameManager().selectedTile.DestoryBuilding();
         AudioManager.GetAudioManager().PlaySell();
         UIManager.GetUIManager().ShowMenu(true, GetGameManager().selectedTile);

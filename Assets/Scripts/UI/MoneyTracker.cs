@@ -24,7 +24,18 @@ public class MoneyTracker : MonoBehaviour {
         return moneyTracker;
     }
 
-    public bool HaveMoney(float cost) {
-        return true;
+    public bool CanAfford(float cost) {
+        if (money - cost > 0)
+            return true;
+
+        return false;
+    }
+
+    public void BuyFor(float cost) {
+        money -= cost;
+    }
+
+    public void SellFor(float cost) {
+        money += cost;
     }
 }
