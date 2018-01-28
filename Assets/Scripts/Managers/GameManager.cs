@@ -197,6 +197,7 @@ public class GameManager : MonoBehaviour {
             float buildingCost = UIManager.GetUIManager().lastBuilding.GetComponent<BuildingCost>().cost;
 
             if (!MoneyTracker.GetMoneyTracker().CanAfford(buildingCost)) {
+                AudioManager.GetAudioManager().PlayDenied();
                 return;
             }
 
@@ -210,6 +211,10 @@ public class GameManager : MonoBehaviour {
     }
 
     public void SellSelected() {
+        float buildingCost = GetGameManager().selectedTile.building.GetComponent<BuildingCost>().cost;
+
+        MoneyTracker.GetMoneyTracker().SellFor(buildingCost / 2);
+
         GetGameManager().selectedTile.DestoryBuilding();
         AudioManager.GetAudioManager().PlaySell();
         UIManager.GetUIManager().ShowMenu(true, GetGameManager().selectedTile);
