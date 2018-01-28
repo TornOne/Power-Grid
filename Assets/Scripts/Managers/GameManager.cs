@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour {
 
     private Tile selectedTile;
 
+    private bool nuclearAlready;
+
 	void Start () {
 	    mainGameManager = this;
 	    grid = mapGen.GenerateMap(tilePrefab, gridXSize, gridYSize);
@@ -202,6 +204,15 @@ public class GameManager : MonoBehaviour {
             }
 
             MoneyTracker.GetMoneyTracker().BuyFor(buildingCost);
+
+            GameObject gameObject = UIManager.GetUIManager().lastBuilding;
+
+            if (gameObject.name == "Nuclear Plant" && !GetGameManager().nuclearAlready) {
+                SnapshotManager.GetSnapshotManager().FirstNuclear();
+            }
+            else {
+                GetGameManager().nuclearAlready = true;
+            }
 
             if (GetGameManager().selectedTile.CreateBuilding(UIManager.GetUIManager().lastBuilding)) {
                 UIManager.GetUIManager().lastBuilding.GetComponent<BuildSound>().Play();
